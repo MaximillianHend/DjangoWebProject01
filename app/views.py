@@ -21,7 +21,7 @@ def index(request):
 
 
 
-def input_view(request):
+def input_teacher(request):
     if request.method == "POST":
         form = teacherForm(request.POST)
 
@@ -35,8 +35,7 @@ def input_view(request):
 
 
 
-
-def input_view(request):
+def input_teacher(request):
     if request.method == "POST":
         form = subjectForm(request.POST)
         if form.is_valid():
