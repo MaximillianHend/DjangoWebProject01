@@ -2,49 +2,62 @@
 Definition of views.
 """
 
-from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.http import HttpResponse
+from .models import teacher, school, subject
+from app.forms import subjectForm, schoolForm, teacherForm
 
-
-def home(request):
-    """Renders the home page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/index.html',
-        {
-            'title':'Home Page',
-            'year':datetime.now().year,
-        }
-    )
-
-def contact(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/contact.html',
-        {
-            'title':'Contact',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
-        }
-    )
-
-def about(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/about.html',
-        {
-            'title':'About',
-            'message':'Your application description page.',
-            'year':datetime.now().year,
-        }
-    )
 
 def index(request):
-    return HttpResponse("Welcome to the index page!")
+    teach = teacher.objects.all()
+    return render(request,"app/index.html",{'content': teach})
+
+def index(request):
+    sch = school.objects.all()
+    return render(request,"app/index.html",{'content': sch})
+
+def index(request):
+    sub = subject.objects.all()
+    return render(request,"app/index.html",{'content': sub})
+
+
+
+def input_view(request):
+    if request.method == "POST":
+        form = teacherForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = teacherForm()
+
+    return render(request, "app/teacher.html", {"form": form})
+
+
+
+
+def input_view(request):
+    if request.method == "POST":
+        form = schoolForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = schoolForm()
+    return render(request, "app/school.html", {"form": form})
+
+
+
+
+def input_view(request):
+    if request.method == "POST":
+        form = subjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = subjectForm()
+    return render(request, "app/subject.html", {"form": form})
+
