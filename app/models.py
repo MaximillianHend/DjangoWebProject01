@@ -11,10 +11,7 @@ class teacher(models.Model):
     Area = models.CharField(max_length=30)
 
 
-class school(models.Model):
-    Name = models.CharField(max_length=25)
-
-
 class subject(models.Model):
     Name = models.CharField(max_length=25)
     Faculty = models.CharField(max_length=30)
+    

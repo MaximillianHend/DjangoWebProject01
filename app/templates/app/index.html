@@ -1,8 +1,21 @@
 {% load static %}
 
+<head>
+    <title>Homepage</title>
+</head>
+
 <body>
     <img src="{% static 'app/images/Screenshot 2026-05-26 122300.png' %}" alt="Logo" style="display:block;">
 
+    <h1>Welcome to My Website</h1>
+
+    <p>This is the homepage.</p>
+
+</body>
+
+
+
+<body>
     <strong>Teachers:</strong>
     {% if content %}
     <table>
@@ -46,33 +59,12 @@
 
 
 
-<body>
-    <strong>Schools:</strong>
-    {% if content %}
-    <table>
-        <tr>
-            <th>Name</th>
-        </tr>
-        {% for teach in content %}
-        <tr>
-            <td>{{sch.Name}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% else %}
-    <strong>No data!</strong>
-    {% endif %}
-</body>
-
-
 
 <p><a href="{% url 'teacherinput' %}">Input new Teachers</a></p>
 
-<p><a href="{% url 'schoolinput' %}">Input new Schools</a></p>
-
 <p><a href="{% url 'subjectinput' %}">Input new Subjects</a></p>
 
-
+<p><a href="{% url 'report'%}">PDF report</a></p> 
 
 
 

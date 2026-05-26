@@ -89,7 +89,6 @@
     <Content Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\subject.html" />
-    <Content Include="app\templates\app\school.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">

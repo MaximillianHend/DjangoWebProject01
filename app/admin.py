@@ -1,7 +1,7 @@
 from re import A
 import app.models
 from django.contrib import admin
-from app.models import teacher, subject, school
+from app.models import teacher, subject
 
 
 
@@ -10,4 +10,3 @@ from app.models import teacher, subject, school
 
 admin.site.register(teacher)
 admin.site.register(subject)
-admin.site.register(school)

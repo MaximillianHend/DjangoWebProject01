@@ -11,6 +11,7 @@ urlpatterns = [
     re_path(r'^$', app.views.index, name='index'),
     re_path(r'^home$', app.views.index, name='home'),
     re_path(r'teacherinput', app.views.input_view, name='teacherinput'),
-    re_path(r'schoolinput', app.views.input_view, name='schoolinput'),
+    #re_path(r'homeinput', app.views.input_view, name='homeinput'),
     re_path(r'subjectinput', app.views.input_view, name='subjectinput'),
+    path('report/', app.views.report, name='report'),
 ]
