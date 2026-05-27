@@ -1,7 +1,7 @@
 from re import A
 import app.models
 from django.contrib import admin
-#from app.models import subject, teacher
+from app.models import subject, teacher, Outcome, RubricTemplate, Criterion, PerformanceBand
 
 
 
@@ -10,5 +10,7 @@ from django.contrib import admin
 
 #admin.site.register(teacher)
 #admin.site.register(subject)
-
-testing123
+admin.site.register(Outcome)
+admin.site.register(RubricTemplate)
+admin.site.register(Criterion)
+admin.site.register(PerformanceBand)

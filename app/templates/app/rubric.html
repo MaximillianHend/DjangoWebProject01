@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <th>Criterion</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+    </tr>
+
+    {% for criterion, bands in rubric.items %}
+
+    <tr>
+        <td>{{ criterion }}</td>
+        <td>{{ bands.A }}</td>
+        <td>{{ bands.B }}</td>
+        <td>{{ bands.C }}</td>
+    </tr>
+
+    {% endfor %}
+</table>

@@ -7,9 +7,24 @@ from email.policy import default
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.http import HttpResponse
-from .models import teacher, subject, assessment, question, submission, mark
+from app.assessments.services.rubric_generator import get_criteria_from_outcomes
+from .models import Outcome, RubricTemplate, Criterion, PerformanceBand
+#from .models import teacher, subject, assessment, question, submission, mark
 #from app.forms import subjectForm, teacherForm
 
+
+def generate_rubric(request):
+
+    selected_outcomes = request.POST.getlist("outcomes")
+
+    criteria = get_criteria_from_outcomes(
+        selected_outcomes
+    )
+
+    return render(request, "rubric.html", {
+        "criteria": criteria
+        
+        })
 
 #def index(request):
 #    teach = teacher.objects.all()
@@ -47,81 +62,7 @@ from .models import teacher, subject, assessment, question, submission, mark
 
 
 
-#Teacher Markings and Student Report card |
-#                                         |
-#                                        \/
 
-
-#Teacher work flow
-
-def create_assessment(request):
-    form = assessmentForm(request.POST or None)
-
-    if form.is_valid():
-        form.save()
-        return redirect("assessment_list")
-
-    return render(request, "create_assessment.html", {"form": form})
-
-
-#Questions for Assesments
-
-def add_question(request, assessment_id):
-    assessment = assessment.objects.get(id=assessment_id)
-    form = questionForm(request.POST or None)
-
-    if form.is_valid():
-        question = form.save(commit=False)
-        question.assessment = assessment
-        question.save()
-        return redirect("assessment_detail", assessment_id)
-
-    return render(request, "add_question.html", {"form": form})
-#"assessment": assessment 
-
-
-
-
-
-#Markings System for Teachers
-
-def mark_submission(request, submission_id):
-    submission = submission.objects.get(id=submission_id)
-    questions = submission.assessment.question_set.all()
-
-    if request.method == "POST":
-        for q in questions:
-            score = request.POST.get(f"score_{q.id}")
-
-            mark.objects.update_or_create(
-            submission=submission_obj,
-            question=q,
-            defaults={"score": score}
-        )
-
-    return redirect("results", submission_id=submission_obj.id)
-
-    return render(request, "mark_submission.html", {
-    "submission": submission_obj,
-    "questions": questions
-    })
-
-
-
-#Results Page for Students
-
-def results(request, submission_id):
-    submission = submission.objects.get(id=submission_id)
-    marks = mark.objects.filter(submission=submission)
-
-
-    total = sum(m.score for m in marks)
-
-    return render(request, "results.html", {
-        "submission": submission, 
-        "marks": marks, 
-        "total": total
-        })
 
 
 #Generating PDF
