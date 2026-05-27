@@ -8,10 +8,9 @@ import app
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    re_path(r'^$', app.views.index, name='index'),
-    re_path(r'^home$', app.views.index, name='home'),
-    re_path(r'teacherinput', app.views.teacher_input, name='teacherinput'),
-    #re_path(r'homeinput', app.views.input_view, name='homeinput'),
-    re_path(r'subjectinput', app.views.subject_input, name='subjectinput'),
+#    re_path(r'^$', app.views.index, name='index'),
+#    re_path(r'^home$', app.views.index, name='home'),
+#    re_path(r'teacherinput', app.views.input_teacher, name='teacherinput'),
+#    re_path(r'subjectinput', app.views.input_subject, name='subjectinput'),
     path('report/', app.views.report, name='report'),
 ]

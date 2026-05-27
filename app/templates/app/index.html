@@ -13,17 +13,15 @@
 
 </body>
 
-
-
 <body>
     <strong>Teachers:</strong>
-    {% if content %}
+    {% if teachers %}
     <table>
         <tr>
             <th>Name</th>
             <th>Teaching Area</th>
         </tr>
-        {% for teach in content %}
+        {% for teach in teachers %}
         <tr>
             <td>{{teach.Name}}</td>
             <td>{{teach.Area}}</td>
@@ -36,18 +34,17 @@
 </body>
 
 
-
 <body>
     <strong>Subjects:</strong>
-    {% if content %}
+    {% if subjects %}
     <table>
         <tr>
             <th>Name</th>
             <th>Faculty</th>
         </tr>
-        {% for teach in content %}
+        {% for sub in subjects %}
         <tr>
-            <td>{{sub.Name}}</td>
+            <td>{{sub.Course}}</td>
             <td>{{sub.Faculty}}</td>
         </tr>
         {% endfor %}
@@ -56,6 +53,10 @@
     <strong>No data!</strong>
     {% endif %}
 </body>
+
+
+
+
 
 
 

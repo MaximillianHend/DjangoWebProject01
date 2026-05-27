@@ -1,0 +1,10 @@
+<form method="POST">
+    {% csrf_token %}
+
+    {% for q in questions %}
+        <p>{{ q.text }} ({{ q.max_marks }} marks)</p>
+        <input type="number" name="q_{{ q.id }}">
+    {% endfor %}
+
+    <button type="submit">Save Marks</button>
+</form>

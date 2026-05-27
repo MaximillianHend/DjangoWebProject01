@@ -61,6 +61,8 @@
     <Folder Include="app\static\app\images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\markings.html" />
+    <Content Include="app\templates\app\results.html" />
     <Content Include="app\templates\app\teacher.html" />
     <Content Include="app\static\app\images\Screenshot 2026-05-26 122300.png" />
     <Content Include="requirements.txt" />

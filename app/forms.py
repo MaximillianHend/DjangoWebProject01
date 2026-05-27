@@ -3,17 +3,17 @@ Definition of forms.
 """
 
 from django import forms
-from .models import teacher, subject
+#from .models import subject, teacher
 
 
-class teacherForm(forms.ModelForm):
-    class Meta:
-        model = teacher
-        fields = ['Name', 'Area']
+#class teacherForm(forms.ModelForm):
+#    class Meta:
+#        model = teacher
+#        fields = ['Name', 'Area']
 
-class subjectForm(forms.ModelForm):
-    class Meta:
-        model = subject
-        fields = ['Name', 'Faculty']
+#class subjectForm(forms.ModelForm):
+#    class Meta:
+#        model = subject
+#        fields = ['Course', 'Faculty']
 
 
