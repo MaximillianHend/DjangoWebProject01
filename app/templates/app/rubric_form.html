@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>Create Rubric</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Generate Rubric
+        </button>
+
+    </form>
+
+</body>
+</html>
+

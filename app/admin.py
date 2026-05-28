@@ -8,8 +8,8 @@ from app.models import subject, teacher, Outcome, RubricTemplate, Criterion, Per
 
 # Register your models here.
 
-#admin.site.register(teacher)
-#admin.site.register(subject)
+admin.site.register(teacher)
+admin.site.register(subject)
 admin.site.register(Outcome)
 admin.site.register(RubricTemplate)
 admin.site.register(Criterion)

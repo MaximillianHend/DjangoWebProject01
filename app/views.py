@@ -1,64 +1,132 @@
 """
 Definition of views.
 """
-#start of forms ----------------------->
+
 
 from email.policy import default
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.http import HttpResponse
-from app.assessments.services.rubric_generator import get_criteria_from_outcomes
-from .models import Outcome, RubricTemplate, Criterion, PerformanceBand
-#from .models import teacher, subject, assessment, question, submission, mark
-#from app.forms import subjectForm, teacherForm
+from .assessments.services.rubric_generator import generate_rubric
+from .models import Outcome, RubricTemplate, Criterion, PerformanceBand, teacher, subject
+from app.forms import teacherForm, RubricForm
 
 
-def generate_rubric(request):
+#Rebric view / generation
 
-    selected_outcomes = request.POST.getlist("outcomes")
+#def rubric_view(request):
 
-    criteria = get_criteria_from_outcomes(
-        selected_outcomes
-    )
+#    selected_outcomes = ["EN11-1"]
 
-    return render(request, "rubric.html", {
-        "criteria": criteria
-        
-        })
+#    rubric = generate_rubric(selected_outcomes)
+
+#    return render(request, "app/rubric.html", {
+#        "rubric": rubric
+#    })
 
 #def index(request):
 #    teach = teacher.objects.all()
-#    sub = subject.objects.all()
 
-#    return render(request,"app/index.html",{'subjects': sub, 'teachers': teach})
-
+#    return render(request,"app/index.html",{'teachers': teach})
 
 
 
-#def input_teacher(request):
- #   if request.method == "POST":
-  #      form = teacherForm(request.POST)
-   #     if form.is_valid():
-    #        form.save()
-   #         return redirect("index")
-  #  else:
-  #      form = teacherForm()
-#
- #   return render(request, "app/teacher.html", {"form": form})
+#Forms for Rubric generator
+#def rubric_view(request):
+
+#    print("VIEW HIT")
 
 
-
-#def input_subject(request):
 #    if request.method == "POST":
-#        form = subjectForm(request.POST)
+
+#        print("POST REQUEST RECEIVED")
+
+#        form = RubricForm(request.POST)
+
+#        print(form.errors)
+
 #        if form.is_valid():
-#            form.save()
-#            return redirect("index")
+
+#            print("FORM IS VALID")
+
+#            selected_outcomes = form.cleaned_data["outcomes"]
+
+#            print(selected_outcomes)
+
+#            rubric = generate_rubric(selected_outcomes)
+
+#            print(rubric)
+
+#            return render(request, "app/rubric.html", {
+#                "rubric": rubric
+#            })
+
 #    else:
-#        form = subjectForm()
-#    return render(request, "app/subject.html", {"form": form})
+#
+#        form = RubricForm()
+#
+#    return render(request, "app/rubric_form.html", {
+#        "form": form
+#    })
+
+def rubric_view(request):
+
+    print("VIEW HIT")
+
+    if request.method == "POST":
+
+        form = RubricForm(request.POST)
+
+        if form.is_valid():
+
+            subject = form.cleaned_data["subject"]
+
+            selected_outcomes = list(
+                form.cleaned_data["outcomes"].values_list("code", flat=True)
+            )
+
+            rubric = generate_rubric(selected_outcomes)
+
+            return render(request, "app/rubric.html", {
+                "rubric": rubric
+            })
+
+        else:
+            print(form.errors)
+
+    else:
+
+        form = RubricForm()
+
+    return render(request, "app/rubric_form.html", {
+        "form": form
+    })
+
+
+
+
+
+
+
+
+
+
+#start of forms ----------------------->
+def input_teacher(request):
+    if request.method == "POST":
+        form = teacherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = teacherForm()
+
+    return render(request, "app/teacher.html", {"form": form})
+
 
 #end of forms -------------------->
+
+
 
 
 

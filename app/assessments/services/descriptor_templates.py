@@ -1,11 +1,14 @@
-quality = "Sophisticated"
-skill = "ideas and textual evidence"
-
 DESCRIPTOR_TEMPLATES = {
 
-    "Analysis": "{quality} analysis of {skill}.",
+    "Communication": "{quality} communication of {skill}.",
 
-    "Communication": "{quality} communication of ideas.",
+    "Project progression": "{quality} demonstration of project progression and problem-solving through documented evidence.",
 
-    "Structure": "{quality} organisation and structure of responses."
+    "Testing methodology": "{quality} demonstration of a testing methodology.",
+
+    "Project Solution": "{quality} demonstration of a project solution.",
+
+    "Understanding of the system": "{quality} demonstration of an understanding of the system created, how it works and key parts of the code.",
+
+    "Optimisations of the system": "{quality} explanation of optimisations of the systems, focusing on iterations from the prototype.",
 }

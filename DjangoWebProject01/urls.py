@@ -10,7 +10,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', app.views.index, name='index'),
     re_path(r'^home$', app.views.index, name='home'),
-#    re_path(r'teacherinput', app.views.input_teacher, name='teacherinput'),
-#    re_path(r'subjectinput', app.views.input_subject, name='subjectinput'),
+    re_path(r'teacherinput', app.views.input_teacher, name='teacherinput'),
+    re_path('generate_rubric/', app.views.rubric_view, name='rubric'),
+    re_path("generate_rubric/", app.views.rubric_view, name='generate_rubric'),
     path('report/', app.views.report, name='report'),
 ]

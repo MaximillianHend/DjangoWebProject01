@@ -34,36 +34,15 @@
 </body>
 
 
-<body>
-    <strong>Subjects:</strong>
-    {% if subjects %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Faculty</th>
-        </tr>
-        {% for sub in subjects %}
-        <tr>
-            <td>{{sub.Course}}</td>
-            <td>{{sub.Faculty}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% else %}
-    <strong>No data!</strong>
-    {% endif %}
-</body>
-
-
-
-
-
 
 
 
 <p><a href="{% url 'teacherinput' %}">Input new Teachers</a></p>
 
-<p><a href="{% url 'subjectinput' %}">Input new Subjects</a></p>
+<p><a href="{% url 'rubric' %}">Rubric Genertor</a></p>
+
+<p><a href="{% url 'generate_rubric' %}">Rubric Genertor</a></p>
+
 
 
 

@@ -4,19 +4,29 @@ from .skill_map import SKILL_MAP
 
 OUTCOME_CRITERIA_MAP = {
     "EN11-1": [
-        "Analysis",
-        "Evidence",
-        "Evaluation"
-    ],
-
-    "EN11-3": [
-        "Structure",
         "Communication",
-        "Argument"
+        "Project progression",
+        "Testing methodology",
+        "Project Solution",
+        "Understanding of the system",
+        "Optimisations of the system",
+
     ]
 }
 
-def get_criteria_from_outcomes(selected_outcomes):
+#OUTCOME_CRITERIA_MAP = {
+#   "EN11-1": [
+#       "Demonstrates project progression and problem-solving through documented evidence",
+#       "Communication",
+#       "Demonstrates a testing methodology",
+#       "Project Solution",
+#       "Demonstrates an understanding of the system created, how it works and key parts of the code",
+#       "Explains optimisations of the systems, focusing on iterations from the prototype",
+#        "Communication",
+#    ]
+#}
+
+def generate_rubric(selected_outcomes):
 
     criteria = []
 
@@ -25,13 +35,9 @@ def get_criteria_from_outcomes(selected_outcomes):
         if outcome in OUTCOME_CRITERIA_MAP:
             criteria.extend(
                 OUTCOME_CRITERIA_MAP[outcome]
-                )
+            )
 
-        return list(set(criteria))
-
-
-
-def generate_descriptors(criteria):
+    criteria = list(set(criteria))
 
     rubric = {}
 
@@ -39,13 +45,11 @@ def generate_descriptors(criteria):
 
         rubric[criterion] = {}
 
-        bands = TAXONOMY[criterion]
-
         template = DESCRIPTOR_TEMPLATES[criterion]
 
         skill = SKILL_MAP[criterion]
 
-        for band, quality in bands.items():
+        for band, quality in TAXONOMY.items():
 
             descriptor = template.format(
                 quality=quality,
