@@ -1,0 +1,37 @@
+{% extends "app/base.html" %}
+{% block content %}
+<head>
+    <title>Markbook Creation Form</title>
+</head>
+<body>
+    <h2>Markbook Creation Form</h2>
+    <h3>Enter Markbook Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<br />
+<body>
+    <strong>Markbooks:</strong>
+    {% if objMarkbooks.all %}
+    <table>
+        <tr>
+            <th>Markbook Value</th>
+            <th>Markbook Date</th>
+
+        </tr>
+        {% for markbook in objMarkbooks.all %}
+        <tr>
+            <td>{{markbook.MarkValue}}</td>
+            <td>{{markbook.MarkDate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Markbooks found.</p>
+    {% endif %}
+</body>
+<br />
+{% endblock %} 

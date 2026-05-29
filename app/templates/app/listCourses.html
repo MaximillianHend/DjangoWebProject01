@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% block content %}
+<body>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% load static %}
+
+
+
+        <strong>Courses:</strong>
+        {% if lstCourses.all %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Subject</th>
+                <th>Course Nbr</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>School</th>
+            </tr>
+            {% for course in lstCourses.all %}
+            <tr>
+                <td>{{course.Subject}}</td>
+                <td>{{course.CourseNbr}}</td>
+                <td>{{course.CourseName}}</td>
+                <td>{{course.Description}}</td>
+                <td>{{course.School}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No Courses found.</p>
+        {% endif %}
+    </form>
+</body>
+        {% endblock %}
+

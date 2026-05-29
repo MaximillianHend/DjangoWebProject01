@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+{% block content %}
+<head>
+    <title>Course Creation Form</title>
+</head>
+<body>
+    <h2>Course Creation Form</h2>
+    <h3>Enter Course Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<br />
+<body>
+    {% if objCourses.all %}
+    <strong>Courses:</strong>
+    <table>
+        <tr>
+            <th>Course Name</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>School</th>
+        </tr>
+        {% for course in objCourses.all %}
+        <tr>
+            <td>{{course.CourseName}}</td>
+            <td>{{course.Subject}}</td>
+            <td>{{course.Teacher}}</td>
+            <td>{{course.School}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Courses found.</p>
+    {% endif %}
+</body>
+<br />
+{% endblock %}

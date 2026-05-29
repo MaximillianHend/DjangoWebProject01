@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+{% block content %}
+<head>
+    <title>Course Enrolment Form</title>
+</head>
+<body>
+    <h2>Course Enrolment Details</h2>
+    <h3>Enter Enrolment Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<br />
+<body>
+    <strong>Enrolments:</strong>
+    {% if objEnrolments.all %}
+    <table>
+        <tr>
+            <th>Enrolment Name</th>
+            <th>Course</th>
+            <th>Student</th>
+
+        </tr>
+        {% for enrolment in objEnrolments.all %}
+        <tr>
+            <td>{{enrolment.EnrolmentName}}</td>
+            <td>{{enrolment.Course}}</td>
+            <td>{{enrolment.Student}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Enrolments found.</p>
+    {% endif %}
+</body>
+<br />
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% load static %}
+
+
+        <strong>Assessment Items:</strong>
+        {% if lstAssessmentItems.all %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Course</th>
+                <th>Unit</th>
+                <th>Assessment Item Nbr</th>
+                <th>Assessment Item Name</th>
+                <th>Assessment Item Type</th>
+                <th>Weighting (%)</th>
+                <th>Description</th>
+            </tr>
+            {% for assessment in lstAssessmentItems.all %}
+            <tr>
+                <td>{{assessment.Course}}</td>
+                <td>{{assessment.Unit}}</td>
+                <td>{{assessment.AssessmentItemNbr}}</td>
+                <td>{{assessment.AssessmentItemName}}</td>
+                <td>{{assessment.AssessmentItemType}}</td>
+                <td>{{assessment.Weighting}}</td>
+                <td>{{assessment.Description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No Assessment Items found.</p>
+        {% endif %}
+    </form>
+</body>
+
+    {% endblock %}
+

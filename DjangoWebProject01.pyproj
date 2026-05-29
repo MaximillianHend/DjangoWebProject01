@@ -67,11 +67,40 @@
     <Folder Include="app\static\app\images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\assessmentitem.html" />
+    <Content Include="app\templates\app\base.html" />
+    <Content Include="app\templates\app\course.html" />
+    <Content Include="app\templates\app\enrolment.html" />
+    <Content Include="app\templates\app\listAssessmentItems.html" />
+    <Content Include="app\templates\app\listCourses.html" />
+    <Content Include="app\templates\app\listEnrolments.html" />
+    <Content Include="app\templates\app\listMarkbooks.html" />
+    <Content Include="app\templates\app\listSchools.html" />
+    <Content Include="app\templates\app\listStudents.html" />
+    <Content Include="app\templates\app\listSubjects.html" />
+    <Content Include="app\templates\app\listSubmissions.html" />
+    <Content Include="app\templates\app\listTeachers.html" />
+    <Content Include="app\templates\app\listUnits.html" />
+    <Content Include="app\templates\app\markbook.html" />
     <Content Include="app\templates\app\rubric.html" />
     <Content Include="app\templates\app\rubric_form.html" />
     <Content Include="app\templates\app\rubric_pdf.html" />
+    <Content Include="app\templates\app\school-backup.html" />
+    <Content Include="app\templates\app\school.html" />
+    <Content Include="app\templates\app\show_school.html" />
+    <Content Include="app\templates\app\singleSchool.html" />
+    <Content Include="app\templates\app\student.html" />
+    <Content Include="app\templates\app\submission.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="app\templates\app\teacher.html" />
     <Content Include="app\static\app\images\Screenshot 2026-05-26 122300.png" />
+    <Content Include="app\templates\app\unit.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\update_school.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% load static %}
+
+    <strong>Schools:</strong>
+    {% if lstSchools.all %}
+    <table class="table table-hover">
+        <tr>
+            <th>School Nbr</th>
+            <th>School Name</th>
+            <th>School Suburb</th>
+            <th>School State</th>
+        </tr>
+        {% for school in lstSchools.all %}
+        <tr>
+            <td><a href="{% url 'show_school' school.id %}">{{school.SchoolNbr}}</a></td>
+            <td>{{school.SchoolName}}</td>
+            <td>{{school.Suburb}}</td>
+            <td>{{school.State}}</td>
+            <td align="right"><a href="{% url 'update_school' school.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Schools found.</p>
+    {% endif %}
+
+</form>
+
+{% endblock %}

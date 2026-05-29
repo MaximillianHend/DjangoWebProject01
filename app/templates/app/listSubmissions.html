@@ -1,0 +1,50 @@
+{% extends "app/base.html" %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% load static %}
+
+    <h1> Student Submitted Assessments </h1>
+
+    <strong>Submissions:</strong>
+    {% if lstSubmissions.all %}
+    <table class="table table-bordered">
+        <tr>
+            <th>Submission Date</th>
+            <th>Submission Nbr</th>
+            <th>Submission Name</th>
+            <th>School</th>
+            <th>Subject</th>
+            <th>Course</th>
+            <th>Unit</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th>Assessment Item</th>
+            <th>Markbook</th>
+            <th>Mark</th>
+            <th>Marked Date</th>
+        </tr>
+        {% for submission in lstSubmissions.all %}
+        <tr>
+            <td>{{submission.SubmissionDate}}</td>
+            <td>{{submission.SubmissionNbr}}</td>
+            <td>{{submission.SubmissionName}}</td>
+            <td>{{submission.School}}</td>
+            <td>{{submission.Subject}}</td>
+            <td>{{submission.Course}}</td>
+            <td>{{submission.Unit}}</td>
+            <td>{{submission.Teacher}}</td>
+            <td>{{submission.Student}}</td>
+            <td>{{submission.AssessmentItem}}</td>
+            <td>{{submission.Markbook}}</td>
+            <td>{{submission.Mark}}</td>
+            <td>{{submission.MarkedDate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Submissions found.</p>
+    {% endif %}
+</form>
+{% endblock %}

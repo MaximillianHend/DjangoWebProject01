@@ -1,49 +1,59 @@
-{% load static %}
+{% extends "app/base.html" %}
 
-<head>
-    <title>Homepage</title>
-</head>
-
+{% block content %}
+<br />
 <body>
-    <img src="{% static 'app/images/Screenshot 2026-05-26 122300.png' %}" alt="Logo" style="display:block;">
-
-    <h1>Welcome to My Website</h1>
-
-    <p>This is the homepage.</p>
-
-</body>
-
-<body>
-    <strong>Teachers:</strong>
-    {% if teachers %}
-    <table>
+    <table class="table table-bordered">
         <tr>
-            <th>Name</th>
-            <th>Teaching Area</th>
+            <th><a href='schoollist'>Schools</a></th>
+            <th><a href='teacherlist'>Teachers</a></th>
+            <th><a href='studentlist'>Students</a></th>
+            <th><a href='subjectlist'>Subjects</a></th>
+            <th><a href='courselist'>Courses</a></th>
+            <th><a href='unitlist'>Units</th>
+            <th><a href='assessmentitemlist'>Assessment Items</a></th>
+            <th><a href='enrolmentlist'>Enrolments</a></th>
+            <th><a href='markbooklist'>Markbooks</a></th>
+            <th><a href='submissionlist'>Submissions</a></th>
         </tr>
-        {% for teach in teachers %}
         <tr>
-            <td>{{teach.Name}}</td>
-            <td>{{teach.Area}}</td>
+            <td>{{ objSchools.count }}</td>
+            <td>{{ objTeachers.count }}</td>
+            <td>{{ objStudents.count }}</td>
+            <td>{{ objSubjects.count }}</td>
+            <td>{{ objCourses.count }}</td>
+            <td>{{ objUnits.count }}</td>
+            <td>{{ objAssessmentItems.count }}</td>
+            <td>{{ objEnrolments.count }}</td>
+            <td>{{ objMarkbooks.count }}</td>
+            <td>{{ objSubmissions.count }}</td>
         </tr>
-        {% endfor %}
+
     </table>
-    {% else %}
-    <strong>No data!</strong>
-    {% endif %}
+</body>
+<br />
+<br />
+<body>
+    <p>Schools  <a href='schoolinput'>Add   </a><a href='schoolread'>Read   </a><a href='schooledit'>Update   </a><a href='schooldelete'>Delete   </a></p>
+    <p>Teachers <a href='teacherinput'>Add   </a><a href='teacherread'>Read   </a><a href='teacheredit'>Update   </a><a href='teacherdelete'>Delete   </a></p>
+    <p>Students <a href='studentinput'>Add   </a><a href='studentread'>Read   </a><a href='studentedit'>Update   </a><a href='studentdelete'>Delete   </a></p>
+    <p>Subjects <a href='subjectinput'>Add   </a><a href='subjectread'>Read   </a><a href='subjectedit'>Update   </a><a href='subjectdelete'>Delete   </a></p>
+    <p>Courses <a href='courseinput'>Add   </a><a href='courseread'>Read   </a><a href='courseedit'>Update   </a><a href='coursedelete'>Delete   </a></p>
+    <p>Units <a href='unitinput'>Add   </a><a href='unitread'>Read   </a><a href='unitedit'>Update   </a><a href='unitdelete'>Delete   </a></p>
+    <p>Assessment Items<a href='assessmentiteminput'>Add   </a><a href='assessmentitemread'>Read   </a><a href='assessmentitemedit'>Update   </a><a href='assessmentitemdelete'>Delete   </a></p>
+    <p>Enrolments <a href='enrolmentinput'>Add   </a><a href='enrolmentread'>Read   </a><a href='enrolmentedit'>Update   </a><a href='enrolmentdelete'>Delete   </a></p>
+    <p>Markbooks<a href='markbookinput'>Add   </a><a href='markbookread'>Read   </a><a href='markbookedit'>Update   </a><a href='markbookdelete'>Delete   </a></p>
+    <p>Submissions <a href='submissioninput'>Add   </a><a href='submissionread'>Read   </a><a href='submissionedit'>Update   </a><a href='submissiondelete'>Delete   </a></p>
+    <p><a href="{% url 'rubric' %}">Rubric Genertor</a></p>
 </body>
 
 
 
 
 
-<p><a href="{% url 'teacherinput' %}">Input new Teachers</a></p>
-
-<p><a href="{% url 'rubric' %}">Rubric Genertor</a></p>
 
 
-<p><a href="{% url 'report'%}">PDF report</a></p>
-
+{% endblock %}
 
 
 

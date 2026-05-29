@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% load static %}
+
+    <strong>Markbooks:</strong>
+    {% if lstMarkbooks.all %}
+    <table class="table table-bordered">
+        <tr>
+            <th>School Name</th>
+            <th>Markbook Nbr</th>
+            <th>Markbook Name</th>
+            <th>Teacher Name</th>
+            <th>Course Name</th>
+            <th>Unit Name</th>
+            <th>Assessment Item</th>
+            <th>Weighting</th>
+            <th>Due Date</th>
+        </tr>
+        {% for markbook in lstMarkbooks.all %}
+        <tr>
+            <td>{{markbook.SchoolName}}</td>
+            <td>{{markbook.MarkbookNbr}}</td>
+            <td>{{markbook.MarkbookName}}</td>
+            <td>{{markbook.TeacherName}}</td>
+            <td>{{markbook.CourseName}}</td>
+            <td>{{markbook.UnitName}}</td>
+            <td>{{markbook.AssessmentItem}}</td>
+            <td>{{markbook.Weighting}}</td>
+            <td>{{markbook.DueDate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Markbooks found.</p>
+    {% endif %}
+    </
+    </body>
+    {% endblock %}

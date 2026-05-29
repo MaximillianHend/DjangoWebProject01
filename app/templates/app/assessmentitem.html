@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Item Form</title>
+</head>
+<body>
+    <h2>Assessment Item Form</h2>
+    <h3>Enter Assessment Item Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<br />
+<body>
+    <strong>Assessment Items:</strong>
+    {% if objAssessmentItems.all %}
+    <table>
+        <tr>
+            <th>AI Name</th>
+            <th>Weighting</th>
+            <th>Course</th>
+        </tr>
+        {% for ai in objAssessmentItems.all %}
+        <tr>
+            <td>{{ai.AssessmentItemName}}</td>
+            <td>{{ai.Weighting}}</td>
+            <td>{{ai.Course}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Assessment Items found.</p>
+    {% endif %}
+</body>
+<br />
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Creation Form</title>
+</head>
+<body>
+    <h2>Unit Creation Form</h2>
+    <h3>Enter Unit Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<body>
+    <strong>Units:</strong>
+    {% if objUnits.all %}
+    <table>
+        <tr>
+            <th>Unit Name</th>
+            <th>Course</th>
+        </tr>
+        {% for unit in objUnits.all %}
+        <tr>
+            <td>{{unit.UnitName}}</td>
+            <td>{{unit.Course}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Units found.</p>
+    {% endif %}
+</body>
+<br />
+</html>

@@ -1,0 +1,24 @@
+{% load static %}
+
+
+{% block content %}
+<center>
+
+    <h1> School Registration </h1>
+    <h2> Individual Data Sheet Record Example </h2>
+
+    {% if lstSchools.all %}
+
+    {% for school in lstSchools %}
+    {{ school.SchoolNbr }}.<br />
+    {{ school.SchoolName }}.<br />
+    {{ school.Suburb }}.<br />
+    {{ school.State }}.<br />
+    <br /><br />
+    {% endfor %}
+    {% else %}
+    <p>No schools found.</p>
+    {% endif %}
+
+</center>
+{% endblock %}

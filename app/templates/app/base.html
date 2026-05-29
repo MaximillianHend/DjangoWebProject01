@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<br />
+<img src="{% static 'app/images/Screenshot 2026-05-26 122300.png' %}" alt="Logo" style="display:block;">
+<br />
+
+{% block content %}
+
+
+{% endblock %}
+
+<br />
+As of {{ time }} {{ cal|safe }}
+Copyright &copy; {{ year }} {{ appName }}. All rights reserved.
+

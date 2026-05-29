@@ -38,7 +38,6 @@ OUTCOME_CRITERIA_MAP = {
 
 
 def generate_rubric(selected_outcomes):
-
     criteria = []
 
     for outcome in selected_outcomes:
@@ -47,21 +46,15 @@ def generate_rubric(selected_outcomes):
             criteria.extend(OUTCOME_CRITERIA_MAP[outcome])
 
     criteria = list(set(criteria))
-
     rubric = {}
 
     for criterion in criteria:
-
         rubric[criterion] = {}
-
         template = DESCRIPTOR_TEMPLATES[criterion]
-
         skill = SKILL_MAP[criterion]
 
         for band, quality in TAXONOMY.items():
-
             descriptor = template.format(quality=quality,skill=skill)
-
             rubric[criterion][band] = descriptor
 
     return rubric

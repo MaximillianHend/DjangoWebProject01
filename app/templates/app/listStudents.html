@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+{% block content %}
+<body>
+    <h2>Registrated Students</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% load static %}
+
+        <strong>Students:</strong>
+        {% if lstStudents.all %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Student Nbr</th>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Year</th>
+                <th>Age</th>
+                <th>Gender</th>
+            </tr>
+            {% for student in lstStudents.all %}
+            <tr>
+                <td>{{student.StudentNbr}}</td>
+                <td>{{student.Title}}</td>
+                <td>{{student.FirstName}}</td>
+                <td>{{student.LastName}}</td>
+                <td>{{student.Year}}</td>>
+                <td>{{student.Age}}</td>
+                <td>{{student.Gender}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No Students found.</p>
+        {% endif %}
+
+    </form>
+</body>
+{% endblock %}
+
+

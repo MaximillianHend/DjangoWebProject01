@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% load static %}
+
+
+
+    <strong>Enrolments:</strong>
+    {% if lstEnrolments.all %}
+    <table class="table table-bordered">
+        <tr>
+            <th>School</th>
+            <th>Student</th>
+            <th>Enrolment Date</th>
+            <th>Subject</th>
+            <th>Course</th>
+            <th>Unit</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        {% for enrolment in lstEnrolments.all %}
+        <tr>
+            <td>{{enrolment.School}}</td>
+            <td>{{enrolment.Student}}</td>
+            <td>{{enrolment.EnrolmentDate}}</td>
+            <td>{{enrolment.Subject}}</td>
+            <td>{{enrolment.Course}}</td>
+            <td>{{enrolment.Unit}}</td>
+            <td>{{enrolment.StartDate}}</td>
+            <td>{{enrolment.EndDate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Enrolments found.</p>
+    {% endif %}
+</form>
+    </body>
+{% endblock %}
+

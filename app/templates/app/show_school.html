@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> School Registration </h1>
+<h2> {{ school.SchoolName }} Individual Data Sheet Record Example </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">School: {{school.SchoolName}}</h5>
+        <p class="card-text">
+            <ul>
+                <li>School Nbr: {{ school.SchoolNbr }}</li>
+                <li>School Name: {{ school.SchoolName }}</li>
+                <li>Suburb: {{ school.Suburb }}</li>
+                <li>State: {{ school.State }}</li>
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+        <a href="{% url 'update_school' school.id %} class="btn btn-outline-secondary btn-sm">Update School</a>
+        <a href="{% url 'delete_school' school.id %} class="btn btn-outline-danger btn-sm">Delete School</a>
+    </div>
+</div>
+
+
+
+{% endblock %}
+

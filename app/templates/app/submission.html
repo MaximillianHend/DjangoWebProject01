@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submission Form</title>
+</head>
+<body>
+    <h2>Submission Form</h2>
+    <h3>Enter Submission Details</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<br/>
+<body>
+    <strong>Submissions:</strong>
+    {% if objSubmissions.all %}
+    <table>
+        <tr>
+            <th>Submission</th>
+            <th>Unit</th>
+            <th>Student</th>
+        </tr>
+        {% for submission in objSubmissions.all %}
+        <tr>
+            <td>{{submission.SubmissionName}}</td>
+            <td>{{submission.Unit}}</td>
+            <td>{{submission.Student}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Submissions found.</p>
+    {% endif %}
+</body>
+</br>
+</html>

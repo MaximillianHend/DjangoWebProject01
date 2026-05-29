@@ -1,0 +1,36 @@
+{}% extends "app/base.html" %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% load static %}
+
+
+    <h1> Course Units </h1>
+    <h2> Data List Sheet </h2>
+
+    <strong>Units:</strong>
+    {% if lstUnits.all %}
+    <table class="table table-bordered">
+        <tr>
+            <th>Course</th>
+            <th>Unit Nbr</th>
+            <th>Unit Name</th>
+            <th>Unit Description</th>
+        </tr>
+        {% for unit in lstUnits.all %}
+        <tr>
+            <td>{{unit.Course}}</td>
+            <td>{{unit.UnitNbr}}</td>
+            <td>{{unit.UnitName}}</td>
+            <td>{{unit.UnitDescription}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Units found.</p>
+    {% endif %}
+
+</form>
+{% endblock %}
