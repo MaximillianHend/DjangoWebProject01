@@ -1,9 +1,9 @@
 TAXONOMY = {
 
-        "A": "Critically analysis",
-        "B": "Analysis ",
-        "C": "Explains",
-        "D": "Describes",
-        "E": "Identifies"
+        'A': 'Critically analysis',
+        'B': 'Analysis',
+        'C': 'Explains',
+        'D': 'Describes',
+        'E': 'Identifies',
 }
 

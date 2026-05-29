@@ -15,14 +15,8 @@ class teacherForm(forms.ModelForm):
 
 class RubricForm(forms.Form):
 
-    subject = forms.ModelChoiceField(
-        queryset=subject.objects.all(),
-        empty_label="Select a subject"
-)
-    outcomes = forms.ModelMultipleChoiceField(
-        queryset=Outcome.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )
+    subject = forms.ModelChoiceField(queryset=subject.objects.all(),empty_label='Select a subject')
+    outcomes = forms.ModelMultipleChoiceField(queryset=Outcome.objects.all(),widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
