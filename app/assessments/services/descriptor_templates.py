@@ -1,6 +1,6 @@
 DESCRIPTOR_TEMPLATES = {
 
-    "Communication": "{quality} communication of {skill}.",
+    "Communication": "{quality} communication.",
 
     "Project progression": "{quality} demonstration of project progression and problem-solving through documented evidence.",
 

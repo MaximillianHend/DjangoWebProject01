@@ -22,6 +22,9 @@ class Outcome(models.Model):
     subject = models.CharField(max_length=100)
     year_level = models.IntegerField()
 
+    def __str__(self):
+        return self.code
+
 class RubricTemplate(models.Model):
     assessment_type = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)

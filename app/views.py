@@ -12,84 +12,22 @@ from .models import Outcome, RubricTemplate, Criterion, PerformanceBand, teacher
 from app.forms import teacherForm, RubricForm
 
 
-#Rebric view / generation
-
-#def rubric_view(request):
-
-#    selected_outcomes = ["EN11-1"]
-
-#    rubric = generate_rubric(selected_outcomes)
-
-#    return render(request, "app/rubric.html", {
-#        "rubric": rubric
-#    })
-
-#def index(request):
-#    teach = teacher.objects.all()
-
-#    return render(request,"app/index.html",{'teachers': teach})
-
-
-
-#Forms for Rubric generator
-#def rubric_view(request):
-
-#    print("VIEW HIT")
-
-
-#    if request.method == "POST":
-
-#        print("POST REQUEST RECEIVED")
-
-#        form = RubricForm(request.POST)
-
-#        print(form.errors)
-
-#        if form.is_valid():
-
-#            print("FORM IS VALID")
-
-#            selected_outcomes = form.cleaned_data["outcomes"]
-
-#            print(selected_outcomes)
-
-#            rubric = generate_rubric(selected_outcomes)
-
-#            print(rubric)
-
-#            return render(request, "app/rubric.html", {
-#                "rubric": rubric
-#            })
-
-#    else:
-#
-#        form = RubricForm()
-#
-#    return render(request, "app/rubric_form.html", {
-#        "form": form
-#    })
-
 def rubric_view(request):
 
     print("VIEW HIT")
-
     if request.method == "POST":
 
         form = RubricForm(request.POST)
-
         if form.is_valid():
-
             subject = form.cleaned_data["subject"]
-
             selected_outcomes = list(
                 form.cleaned_data["outcomes"].values_list("code", flat=True)
-            )
+                                    )
 
+            print(selected_outcomes)
             rubric = generate_rubric(selected_outcomes)
 
-            return render(request, "app/rubric.html", {
-                "rubric": rubric
-            })
+            return render(request, "app/rubric.html", {"rubric": rubric})
 
         else:
             print(form.errors)
@@ -98,20 +36,15 @@ def rubric_view(request):
 
         form = RubricForm()
 
-    return render(request, "app/rubric_form.html", {
-        "form": form
-    })
-
-
-
-
-
-
-
-
+    return render(request, "app/rubric_form.html", {"form": form})
 
 
 #start of forms ----------------------->
+def index(request):
+    teach = teacher.objects.all()
+
+    return render(request,"app/index.html",{'teachers': teach})
+
 def input_teacher(request):
     if request.method == "POST":
         form = teacherForm(request.POST)
@@ -125,12 +58,6 @@ def input_teacher(request):
 
 
 #end of forms -------------------->
-
-
-
-
-
-
 
 
 #Generating PDF
