@@ -18,30 +18,32 @@ from app.forms import teacherForm, RubricForm
 def rubric_view(request):
 
     print("VIEW HIT")
+
+    form = RubricForm(request.POST or None)
+
     if request.method == "POST":
 
-        form = RubricForm(request.POST)
         if form.is_valid():
+
             subject = form.cleaned_data["subject"]
             selected_outcomes = list(
                 form.cleaned_data["outcomes"].values_list("code", flat=True)
-                                    )
+            )
 
-            print(selected_outcomes)
             rubric = generate_rubric(selected_outcomes)
 
-            return render(request, "app/rubric.html", {"rubric": rubric})
+            request.session["rubric"] = rubric # Store the rubric in the session for later retrieval
+
+            return render(
+                request,
+                "app/rubric.html",
+                {"rubric": rubric}
+            )
 
         else:
             print(form.errors)
 
-    else:
-
-        form = RubricForm()
-
-    request.session["rubric"] = rubric
-
-    return render(request,"app/rubric.html",{"rubric": rubric})
+    return render(request,"app/rubric_form.html",{"form": form})
 
 
 

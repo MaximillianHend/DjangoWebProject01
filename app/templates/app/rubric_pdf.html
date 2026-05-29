@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rubric</h1>
+
+    {% if rubric %}
+    <table>
+        <tr>
+            <th>Criteria</th>
+            <th>Level</th>
+        </tr>
+
+        {% for item in rubric %}
+        <tr>
+            <td>{{ item.criteria }}</td>
+            <td>{{ item.level }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No rubric data found.</p>
+    {% endif %}
+
+</body>
+</html>

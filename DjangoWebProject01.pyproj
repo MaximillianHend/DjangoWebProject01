@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="app\templates\app\rubric.html" />
     <Content Include="app\templates\app\rubric_form.html" />
+    <Content Include="app\templates\app\rubric_pdf.html" />
     <Content Include="app\templates\app\teacher.html" />
     <Content Include="app\static\app\images\Screenshot 2026-05-26 122300.png" />
     <Content Include="requirements.txt" />
