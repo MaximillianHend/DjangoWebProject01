@@ -4,6 +4,9 @@ Definition of views.
 
 
 from email.policy import default
+import html
+import http
+import re
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.http import HttpResponse
@@ -36,7 +39,11 @@ def rubric_view(request):
 
         form = RubricForm()
 
-    return render(request, "app/rubric_form.html", {"form": form})
+    request.session["rubric"] = rubric
+
+    return render(request,"app/rubric.html",{"rubric": rubric})
+
+
 
 
 #start of forms ----------------------->
@@ -68,6 +75,38 @@ from reportlab.platypus import Paragraph,Image,Table #Generating PDfs
 from django.http import FileResponse #Downloading files
 from django.contrib.staticfiles.storage import staticfiles_storage #Working with static files
 from io import BytesIO #Using Byte streams
+from django.template.loader import render_to_string #Rendering HTML to string for PDF generation
+from weasyprint import HTML #Generating PDF from HTML string
+
+
+
+
+
+
+def generate_rubric_pdf(request):
+
+    rubric = request.session.get("rubric")
+
+    html_string = render_to_string(
+        'app/rubric_pdf.html',
+        {'rubric': rubric}
+    )
+
+    pdf_file = HTML(string=html_string).write_pdf()
+
+    response = HttpResponse(
+        pdf_file,
+        content_type='application/pdf'
+    )
+
+    response['Content-Disposition'] = (
+        'attachment; filename="rubric.pdf"'
+    )
+
+    return response
+
+
+
 
 def generate_pdf_file():
        
@@ -78,7 +117,7 @@ def generate_pdf_file():
     teachers = teacher.objects.all()
 
     for teach in teachers:
-        lines.append((teach.Name, teach.Area))
+        lines.append((teach.name, teach.area))
 
     table = Table(lines)
     table.wrapOn(p, 300, 300)

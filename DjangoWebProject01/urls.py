@@ -14,4 +14,5 @@ urlpatterns = [
     re_path('generate_rubric/', app.views.rubric_view, name='rubric'),
     re_path("generate_rubric/", app.views.rubric_view, name='generate_rubric'),
     path('report/', app.views.report, name='report'),
+    path('rubric/pdf/', app.views.generate_rubric_pdf, name='rubric_pdf'),
 ]
