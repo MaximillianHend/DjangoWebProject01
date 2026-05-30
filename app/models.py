@@ -11,13 +11,12 @@ from tkinter import FIRST, PhotoImage
 from turtle import isvisible
 from datetime import date
 
+
+
 #rubric models---------------------------------------------------------------
 class teacher(models.Model):
    name = models.CharField(max_length=100)
    area = models.CharField(max_length=100)
-
-
-
 
 
 class Outcome(models.Model):

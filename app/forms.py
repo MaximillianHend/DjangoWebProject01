@@ -1,7 +1,3 @@
-"""
-Definition of forms.
-"""
-
 from django import forms
 from .models import teacher, Outcome, tblSchool, tblTeacher, tblStudent, tblSubject, tblCourse, tblUnit, tblAssessmentItem, tblEnrolment, tblMarkbook, tblSubmission
 from django.contrib.auth.forms import AuthenticationForm

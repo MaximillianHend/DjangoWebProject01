@@ -5,9 +5,6 @@ import app.views
 import app
 
 
-#    <p><a href="{% url 'report'%}">PDF report</a></p>
-#link for pdf reports
-
 
 urlpatterns = [
 #general paths
@@ -52,7 +49,7 @@ urlpatterns = [
     re_path(r'^markbooklist', app.views.list_markbooks, name='markbooklist'),
     re_path(r'^submissionlist', app.views.list_submissions, name='submissionlist'),
 
-    #single record display
+#single record display
     path('show_school/<school_id>', app.views.show_school, name="show_school"),
     path('show_teacher/<teacher_id>', app.views.show_teacher, name="show_teacher"),
     path('show_student/<student_id>', app.views.show_student, name="show_student"),
@@ -103,7 +100,7 @@ urlpatterns = [
     #create markbooks from existing data
     path('create_markbooks', app.views.create_markbooks, name="create_markbooks"),
 
-    #Nav Bar buttons
+    #nav Bar buttons
     path('return_home', app.views.return_home, name="return_home"),
     path('exit_app', app.views.return_home, name="exit_app"),
     

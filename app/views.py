@@ -1,8 +1,3 @@
-"""
-Definition of views.
-"""
-
-
 from email.policy import default
 import html
 import http
@@ -14,7 +9,6 @@ from .assessments.services.rubric_generator import generate_rubric
 import email
 from .models import Outcome, RubricTemplate, Criterion, PerformanceBand, teacher, tblTeacher, tblSubject, tblSchool, tblStudent, tblCourse, tblMarkbook, tblAssessmentItem, tblUnit, tblEnrolment, tblSubmission
 from app.forms import teacherForm, RubricForm, subjectForm, schoolForm, teacherForm, studentForm, courseForm, unitForm, assessmentitemForm, enrolmentForm, markbookForm, submissionForm
-#from django.http.response import HttpResponseRedirect
 
 
 
@@ -122,12 +116,6 @@ def show_submission(request, submission_id):
 
 
 
-
-
-
-
-
-email
 # Clone records
 def clone_school(request, school_id):
     original_school = tblSchool.objects.get(pk=school_id)
@@ -215,123 +203,76 @@ def clone_submission(request, submission_id):
 
 
 
-
-
 # Individual record update
 
 def update_school(request, school_id):
     school = tblSchool.objects.get(pk=school_id)
-    #form = schoolForm(request.POST or None, instance=school)
     return render(request, "app/update_school.html", {"school": school})
-    #return render(request, "app/update_school.html", {"school": school}, {"form": form})
-      
-    '''
-    form = schoolForm(request.POST or None, instance=school)
-    if form.is_valid():
-        form.save()
-    return redirect('index')    
-    '''
+  
 
 def update_teacher(request, teacher_id):
     teacher = tblTeacher.objects.get(pk=teacher_id)
     form = teacherForm(request.POST or None, instance=teacher)
     return render(request, "app/update_teacher.html", {"teacher": teacher})
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+
     
 def update_student(request, student_id):
     student = tblStudent.objects.get(pk=student_id)
     form = studentForm(request.POST or None, instance=student)
     return render(request, "app/update_student.html", {"student": student})
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+  
 
 def update_subject(request, subject_id):
     subject = tblSubject.objects.get(pk=subject_id)
     form = subjectForm(request.POST or None, instance=subject)
     return render(request, "app/update_subject.html", {"subject": subject})
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+  
 
 def update_course(request, course_id):
     course = tblCourse.objects.get(pk=course_id)
     form = courseForm(request.POST or None, instance=course)
     return render(request, "app/update_course.html", {"course": course})
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+  
 
 def update_unit(request, unit_id):
     unit = tblUnit.objects.get(pk=unit_id)
     form = unitForm(request.POST or None, instance=unit)
     return render(request, "app/update_unit.html", {"unit": unit})
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+   
 
 def update_assessmentitem(request, assessmentitem_id):
     assessmentitem = tblAssessmentItem.objects.get(pk=assessmentitem_id)
     form = assessmentitemForm(request.POST or None, instance=assessmentitem)
     return render(request, "app/update_assessmentitem.html", {"assessmentitem": assessmentitem})
     
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+    
 
 def update_enrolment(request, enrolment_id):
     enrolment = tblEnrolment.objects.get(pk=enrolment_id)
     form = enrolmentForm(request.POST or None, instance=enrolment)
     return render(request, "app/update_enrolment.html", {"enrolment": enrolment})
     
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+   
 
 def update_markbook(request, markbook_id):
     markbook = tblMarkbook.objects.get(pk=markbook_id)
     form = markbookForm(request.POST or None, instance=markbook)
     return render(request, "app/update_markbook.html", {"markbook": markbook})
     
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    '''
+   
 
 def update_submission(request, submission_id):
     submission = tblSubmission.objects.get(pk=submission_id)
     form = submissionForm(request.POST or None, instance=submission)
     return render(request, "app/update_submission.html", {"submission": submission})
-    
-    '''
-    if form.is_valid():
-        form.save()
-        return redirect('index')    
-    '''
+   
     
 
 
 
 
 
-# Individual record delete
+# individual record delete
 def delete_school(request, school_id):
     event = tblSchool.objects.get(pk=school_id)
     event.delete()
@@ -395,7 +336,7 @@ def delete_submission(request, submission_id):
 
 
 
-# List Views for each model
+# list views for each model
 def list_schools(request):
     lstSchools = tblSchool.objects.all()
     return render(request, "app/listSchools.html", {"lstSchools": lstSchools})
@@ -450,19 +391,11 @@ def list_submissions(request):
 
 
 
-# Multi-table Queries using select_related
-def get_courses_with_subject():
-    courses = tblCourse.objects.select_related('subject').all()
-    for course in courses:
-        print(course.CourseName, course.subject.SubjectName) 
 
 
 
 
-
-
-
-# Data Entry Views for each model
+# inputs
 def input_school(request):
     submitted = False
     
@@ -591,18 +524,6 @@ def input_submission(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def create_markbooks(request):
     units = tblUnit.objects.all()
     assessmentitems = tblAssessmentItem.objects.all()
@@ -629,21 +550,14 @@ def return_home(request):
 
 def exit_app(request):
     quit
+
+
+def get_courses_with_subject():
+    courses = tblCourse.objects.select_related('subject').all()
+    for course in courses:
+        print(course.CourseName, course.subject.SubjectName) 
+
 #-----------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #Generating PDFs -------------------------------------------------------------------------------------
