@@ -13,23 +13,19 @@ from turtle import isvisible
 from datetime import date
 #dads code__________________________________________________________>
 
-
 #rubric models---------------------------------------------------------------
 class teacher(models.Model):
    name = models.CharField(max_length=100)
    area = models.CharField(max_length=100)
 
 
-class subject(models.Model):
-    name = models.CharField(max_length=100)
-    def __str__(self):
-        return self.name
+
 
 
 class Outcome(models.Model):
     code = models.CharField(max_length=20)
     description = models.TextField()
-    subject = models.CharField(max_length=100)
+    tblSubject = models.CharField(max_length=100)
     year_level = models.IntegerField()
     def __str__(self):
         return self.code
@@ -37,7 +33,7 @@ class Outcome(models.Model):
 
 class RubricTemplate(models.Model):
     assessment_type = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
+    tblSubject = models.CharField(max_length=100)
 
 
 class Criterion(models.Model):
@@ -90,10 +86,12 @@ class tblStudent(models.Model):
     Title = models.CharField(max_length=30)
     DateOfBirth = models.DateField(null=True)
     Phone = models.CharField(max_length=20, null=True)
-    Email = models.CharField(max_length=50, null=True)    
+    Email = models.CharField(max_length=50, null=True)
+    name = models.CharField(max_length=100)
     def __str__(self):
         return self.StudentNbr + ": " + self.LastName + ", " + self.FirstName
 
+  
    
 class tblSubject(models.Model):
     SubjectNbr = models.CharField(max_length=10, default='SB0000')

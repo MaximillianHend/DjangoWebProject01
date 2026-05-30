@@ -12,7 +12,7 @@ from django.http import HttpRequest
 from django.http import HttpResponse
 from .assessments.services.rubric_generator import generate_rubric
 import email
-from .models import Outcome, RubricTemplate, Criterion, PerformanceBand, teacher, subject, tblTeacher, tblSubject, tblSchool, tblStudent, tblCourse, tblMarkbook, tblAssessmentItem, tblUnit, tblEnrolment, tblSubmission
+from .models import Outcome, RubricTemplate, Criterion, PerformanceBand, teacher, tblTeacher, tblSubject, tblSchool, tblStudent, tblCourse, tblMarkbook, tblAssessmentItem, tblUnit, tblEnrolment, tblSubmission
 from app.forms import teacherForm, RubricForm, subjectForm, schoolForm, teacherForm, studentForm, courseForm, unitForm, assessmentitemForm, enrolmentForm, markbookForm, submissionForm
 #from django.http.response import HttpResponseRedirect
 
@@ -28,7 +28,7 @@ def rubric_view(request):
     if request.method == 'POST':
 
         if form.is_valid():
-            subject = form.cleaned_data['subject']
+            tblSubject = form.cleaned_data['tblSubject']
             selected_outcomes = list(form.cleaned_data['outcomes'].values_list('code', flat=True))
             rubric = generate_rubric(selected_outcomes)
             request.session['rubric'] = rubric
@@ -611,10 +611,6 @@ def return_home(request):
 def exit_app(request):
     quit
 #-----------------------------------------------------------------------------------------------------
-
-
-
-
 
 
 

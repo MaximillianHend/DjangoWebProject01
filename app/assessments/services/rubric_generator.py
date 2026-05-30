@@ -12,7 +12,7 @@ OUTCOME_CRITERIA_MAP = {
         'Optimisations of the system',
 
     ],
-
+   
 
     'DS11-2': [
         'Communication',

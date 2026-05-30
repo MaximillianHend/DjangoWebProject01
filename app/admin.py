@@ -1,7 +1,7 @@
 from re import A
 import app.models
 from django.contrib import admin
-from app.models import subject, teacher, Outcome, RubricTemplate, Criterion, PerformanceBand, tblTeacher, tblSubject, tblSchool, tblStudent, tblCourse, tblMarkbook, tblAssessmentItem, tblUnit, tblEnrolment, tblSubmission
+from app.models import teacher, Outcome, RubricTemplate, Criterion, PerformanceBand, tblTeacher, tblSubject, tblSchool, tblStudent, tblCourse, tblMarkbook, tblAssessmentItem, tblUnit, tblEnrolment, tblSubmission
 
 
 #rubic models
@@ -9,11 +9,10 @@ admin.site.register(Outcome)
 admin.site.register(RubricTemplate)
 admin.site.register(Criterion)
 admin.site.register(PerformanceBand)
-admin.site.register(teacher)
-admin.site.register(subject)
 
 
-#table models
+
+#table models1
 admin.site.register(tblTeacher)
 admin.site.register(tblSubject)
 admin.site.register(tblSchool)

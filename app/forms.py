@@ -3,11 +3,10 @@ Definition of forms.
 """
 
 from django import forms
-from .models import teacher, Outcome, subject, tblSchool, tblTeacher, tblStudent, tblSubject, tblCourse, tblUnit, tblAssessmentItem, tblEnrolment, tblMarkbook, tblSubmission
+from .models import teacher, Outcome, tblSchool, tblTeacher, tblStudent, tblSubject, tblCourse, tblUnit, tblAssessmentItem, tblEnrolment, tblMarkbook, tblSubmission
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 from django.forms import widgets, ModelForm
-
 
 
 
@@ -22,7 +21,7 @@ class teacherForm(forms.ModelForm):
 #rubric forms ---------------------------------------------------------------------------------------
 class RubricForm(forms.Form):
 
-    subject = forms.ModelChoiceField(queryset=subject.objects.all(),empty_label='Select a subject')
+    tblSubject = forms.ModelChoiceField(queryset=tblSubject.objects.all(),empty_label='Select a subject')
     outcomes = forms.ModelMultipleChoiceField(queryset=Outcome.objects.all(),widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, *args, **kwargs):
