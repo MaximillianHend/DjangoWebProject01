@@ -24,8 +24,10 @@
         </p>
     </div>
     <div class="card-footer text-muted"
-        <a href="{% url 'update_school' school.id %} class="btn btn-outline-secondary btn-sm">Update School</a>
-        <a href="{% url 'delete_school' school.id %} class="btn btn-outline-danger btn-sm">Delete School</a>
+        <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+        <a href="{% url 'clone_school' school.id %}" class="btn btn-secondary btn-sm">Clone School</a>
+        <a href="{% url 'update_school' school.id %}" class="btn btn-secondary btn-sm">Update School</a>
+        <a href="{% url 'delete_school' school.id %}" class="btn btn-outline-danger btn-sm">Delete School</a>
     </div>
 </div>
 

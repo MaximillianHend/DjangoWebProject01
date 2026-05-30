@@ -1,3 +1,7 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
 <table border="1">
 
     <tr>
@@ -28,4 +32,5 @@
 </table>
 <a href="{% url 'rubric_pdf' %}">Download PDF</a>
 
+{% endblock %}
 

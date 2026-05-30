@@ -133,7 +133,7 @@ def clone_school(request, school_id):
     original_school = tblSchool.objects.get(pk=school_id)
     cloned_school = tblSchool(SchoolName=f"Clone of {original_school.SchoolName}",Address=original_school.Address,
         Suburb=original_school.Suburb,State=original_school.State,Postcode=original_school.Postcode,Phone=original_school.Phone,
-        Email=original_school,EmailWebsite=original_school.Website)
+        Email=original_school,Website=original_school.Website)
     cloned_school.save()
     return redirect('schoollist')
 
@@ -217,18 +217,14 @@ def clone_submission(request, submission_id):
 
 
 
-
-
-
-
-
 # Individual record update
 
 def update_school(request, school_id):
-    #school = tblSchool.objects.get(pk=school_id)
-    
-    #event = tblSchool.objects.get(pk=school_id)
-    return
+    school = tblSchool.objects.get(pk=school_id)
+    #form = schoolForm(request.POST or None, instance=school)
+    return render(request, "app/update_school.html", {"school": school})
+    #return render(request, "app/update_school.html", {"school": school}, {"form": form})
+      
     '''
     form = schoolForm(request.POST or None, instance=school)
     if form.is_valid():
@@ -239,73 +235,96 @@ def update_school(request, school_id):
 def update_teacher(request, teacher_id):
     teacher = tblTeacher.objects.get(pk=teacher_id)
     form = teacherForm(request.POST or None, instance=teacher)
+    return render(request, "app/update_teacher.html", {"teacher": teacher})
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-        
-
+    '''
+    
 def update_student(request, student_id):
     student = tblStudent.objects.get(pk=student_id)
     form = studentForm(request.POST or None, instance=student)
+    return render(request, "app/update_student.html", {"student": student})
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_subject(request, subject_id):
     subject = tblSubject.objects.get(pk=subject_id)
     form = subjectForm(request.POST or None, instance=subject)
+    return render(request, "app/update_subject.html", {"subject": subject})
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_course(request, course_id):
     course = tblCourse.objects.get(pk=course_id)
     form = courseForm(request.POST or None, instance=course)
+    return render(request, "app/update_course.html", {"course": course})
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_unit(request, unit_id):
     unit = tblUnit.objects.get(pk=unit_id)
     form = unitForm(request.POST or None, instance=unit)
+    return render(request, "app/update_unit.html", {"unit": unit})
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_assessmentitem(request, assessmentitem_id):
     assessmentitem = tblAssessmentItem.objects.get(pk=assessmentitem_id)
     form = assessmentitemForm(request.POST or None, instance=assessmentitem)
+    return render(request, "app/update_assessmentitem.html", {"assessmentitem": assessmentitem})
+    
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_enrolment(request, enrolment_id):
     enrolment = tblEnrolment.objects.get(pk=enrolment_id)
     form = enrolmentForm(request.POST or None, instance=enrolment)
+    return render(request, "app/update_enrolment.html", {"enrolment": enrolment})
+    
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
-
+    '''
 
 def update_markbook(request, markbook_id):
     markbook = tblMarkbook.objects.get(pk=markbook_id)
     form = markbookForm(request.POST or None, instance=markbook)
+    return render(request, "app/update_markbook.html", {"markbook": markbook})
+    
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')
-
+    '''
 
 def update_submission(request, submission_id):
     submission = tblSubmission.objects.get(pk=submission_id)
     form = submissionForm(request.POST or None, instance=submission)
+    return render(request, "app/update_submission.html", {"submission": submission})
+    
+    '''
     if form.is_valid():
         form.save()
         return redirect('index')    
+    '''
     
 
 
@@ -698,3 +717,18 @@ def report(request):
     return response
 
 #----------------------------------------------------------------------------------------------------
+
+def return_home(request):
+    return redirect('index')
+
+def about(request):
+    return render(request, "app/about.html")
+
+def contact(request):
+    return render(request, "app/contact.html")
+
+def login(request):
+    return render(request, "app/login.html")
+
+def exit_app(request):
+    exit_app()

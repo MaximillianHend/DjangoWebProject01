@@ -13,9 +13,11 @@ urlpatterns = [
 #general paths
     path('admin/', admin.site.urls),
     re_path(r'^$', app.views.index, name='index'),
+#Navbar paths
     re_path(r'^home$', app.views.index, name='home'),
-
-
+    re_path(r'^about$', app.views.about, name='about'),
+    re_path(r'^contact$', app.views.contact, name='contact'),
+    re_path(r'^login$', app.views.login, name='login'),
 
 
 #rubric paths

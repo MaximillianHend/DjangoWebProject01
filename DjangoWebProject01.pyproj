@@ -67,10 +67,13 @@
     <Folder Include="app\static\app\images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\assessmentitem.html" />
     <Content Include="app\templates\app\base.html" />
+    <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\course.html" />
     <Content Include="app\templates\app\enrolment.html" />
+    <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\listAssessmentItems.html" />
     <Content Include="app\templates\app\listCourses.html" />
     <Content Include="app\templates\app\listEnrolments.html" />
@@ -81,11 +84,11 @@
     <Content Include="app\templates\app\listSubmissions.html" />
     <Content Include="app\templates\app\listTeachers.html" />
     <Content Include="app\templates\app\listUnits.html" />
+    <Content Include="app\templates\app\loginpartial.html" />
     <Content Include="app\templates\app\markbook.html" />
     <Content Include="app\templates\app\rubric.html" />
     <Content Include="app\templates\app\rubric_form.html" />
     <Content Include="app\templates\app\rubric_pdf.html" />
-    <Content Include="app\templates\app\school-backup.html" />
     <Content Include="app\templates\app\school.html" />
     <Content Include="app\templates\app\show_assessmentitem.html">
       <SubType>Code</SubType>
@@ -125,12 +128,20 @@
     <Content Include="app\templates\app\unit.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="app\templates\app\update_assessmentitem.html" />
+    <Content Include="app\templates\app\update_course.html" />
+    <Content Include="app\templates\app\update_enrolment.html" />
     <Content Include="app\templates\app\update_markbook.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="app\templates\app\update_school.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="app\templates\app\update_student.html" />
+    <Content Include="app\templates\app\update_subject.html" />
+    <Content Include="app\templates\app\update_submission.html" />
+    <Content Include="app\templates\app\update_teacher.html" />
+    <Content Include="app\templates\app\update_unit.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

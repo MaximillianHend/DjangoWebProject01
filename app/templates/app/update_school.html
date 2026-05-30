@@ -1,9 +1,10 @@
 {% extends "app/base.html" %}
 {% block content %}
-<h1>Update School Record</h1>
+<h1>Update Record</h1>
 <br />
-
-{{ tblSchool }}
-
+<form>
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ school }}
+</form>
 {% endblock %}
-
