@@ -4,14 +4,12 @@ Definition of models.
 
 from django.db import models
 from django.shortcuts import render
-#dads code________________________________________________________>
 from email.headerregistry import Address, Group
 from email.policy import default
 from tarfile import NUL
 from tkinter import FIRST, PhotoImage
 from turtle import isvisible
 from datetime import date
-#dads code__________________________________________________________>
 
 #rubric models---------------------------------------------------------------
 class teacher(models.Model):
