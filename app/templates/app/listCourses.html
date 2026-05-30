@@ -21,11 +21,13 @@
             </tr>
             {% for course in lstCourses.all %}
             <tr>
+                <td><a href="{% url 'show_course' course.id %}">{{course.CourseNbr}}</a></td>
                 <td>{{course.Subject}}</td>
                 <td>{{course.CourseNbr}}</td>
                 <td>{{course.CourseName}}</td>
                 <td>{{course.Description}}</td>
                 <td>{{course.School}}</td>
+                <td align="right"><a href="{% url 'update_course' course.id %}">Update</a></td>
             </tr>
             {% endfor %}
         </table>

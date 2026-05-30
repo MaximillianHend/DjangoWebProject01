@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> School Enrolment </h1>
+<h2> {{ enrolment.EnrolmentName }}</h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Enrolment: {{enrolment.EnrolmentName}}</h5>
+        <p class="card-text">
+            <ul>
+                <li>Enrolment #: {{ enrolment.EnrolmentNbr }}</li>
+                <li School: {{ enrolment.School }}</li>
+                <li>Student: {{ enrolment.Student }}</li>
+                <li>Unit: {{ enrolment.Unit }}</li>
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+    <a href="{% url 'clone_enrolment' enrolment.id %}" class="btn btn-secondary btn-sm">Clone Enrolment</a>
+    <a href="{% url 'update_enrolment' enrolment.id %}" class="btn btn-secondary btn-sm">Update Enrolment</a>
+    <a href="{% url 'delete_enrolment' enrolment.id %}" class="btn btn-outline-danger btn-sm">Delete Enrolment</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

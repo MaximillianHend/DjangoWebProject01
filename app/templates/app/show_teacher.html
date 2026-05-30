@@ -1,0 +1,37 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> Teacher Details </h1>
+<h2> {{ teacher.LastName }} + ", " + {{ teacher.FirstName }} </h2>
+
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Teacher: {{ teacher.FirstName }} + " " + {{ teacher.LastName }}</h5>
+        <p class="card-text">
+            <ul>
+                <li>School Nbr: {{ teacher.TeacherNbr }}</li>
+                <li>Title: {{ teacher.Title }}</li>
+                <li>First Name: {{ teacher.FirstName }}</li>
+                <li>Last Name: {{ teacher.LastName }}</li>
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+    <a href="{% url 'clone_teacher' teacher.id %}" class="btn btn-secondary btn-sm">Clone Teacher</a>
+    <a href="{% url 'update_teacher' teacher.id %}" class="btn btn-secondary btn-sm">Update Teacher</a>
+    <a href="{% url 'delete_teacher' teacher.id %}" class="btn btn-outline-danger btn-sm">Delete Teacher</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

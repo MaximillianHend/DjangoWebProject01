@@ -1,4 +1,4 @@
-{}% extends "app/base.html" %}
+{% extends "app/base.html" %}
 {% block content %}
 
 <form action="" method="post">
@@ -21,12 +21,16 @@
         </tr>
         {% for unit in lstUnits.all %}
         <tr>
+            <td><a href="{% url 'show_unit' unit.id %}">{{unit.UnitNbr}}</a></td>
             <td>{{unit.Course}}</td>
-            <td>{{unit.UnitNbr}}</td>
             <td>{{unit.UnitName}}</td>
             <td>{{unit.UnitDescription}}</td>
+            <td align="right"><a href="{% url 'update_unit' unit.id %}">Update</a></td>
         </tr>
         {% endfor %}
+
+
+
     </table>
     {% else %}
     <p>No Units found.</p>

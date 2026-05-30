@@ -174,6 +174,5 @@ class tblSubmission(models.Model):
     SubmissionMark = models.IntegerField()
     SubmissionDate = models.DateField(default=date.today)
     def __str__(self):
-        return self.SubmissionNbr + ": " + self.SubmissionDate.strftime("%d-%m-%Y")    #("%Y-%m-%d") 
-
+        return self.SubmissionNbr + ": " + self.SubmissionDate.strftime("%d-%m-%Y")
 

@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> Markbook </h1>
+<h2> {{ markbook.MarkbookName }} Individual Data Sheet Record Example </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Markbook: {{markbook.MarkbookName}}</h5>
+        <p class="card-text">
+            <ul>
+                <li>MB Number: {{ markbook.MarkbookNbr }}</li>
+                <li>MB Name: {{ markbook.MarkbookName }}</li>
+                <li>Teacher: {{ markbook.Teacher }}</li>
+                <li>Subject: {{ markbook.Subject }}</li>
+                <li>Course: {{ markbook.Course }}</li>
+                <li>Unit: {{ markbook.Unit }}</li>
+                <li>Assessment Item: {{ markbook.AssessmentItem }}</li>
+                <li>Weighting: {{ markbook.Weighting }}</li>
+                <li>Due Date: {{ markbook.DueDate }}</li>
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+        <a href="{% url 'clone_school' 1 %} class="btn btn-secondary btn-sm"></a>
+        <a href="{% url 'clone_markbook' markbook.id %}" class="btn btn-secondary btn-sm">Clone Markbook</a>
+        <a href="{% url 'update_markbook' markbook.id %}" class="btn btn-outline-secondary btn-sm">Update Markbook</a>
+        <a href="{% url 'delete_markbook' markbook.id %}" class="btn btn-outline-danger btn-sm">Delete Markbook</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

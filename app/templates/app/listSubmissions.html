@@ -27,8 +27,8 @@
         </tr>
         {% for submission in lstSubmissions.all %}
         <tr>
+            <td><a href="{% url 'show_submission' submission.id %}">{{submission.SubmissionNbr}}</a></td>
             <td>{{submission.SubmissionDate}}</td>
-            <td>{{submission.SubmissionNbr}}</td>
             <td>{{submission.SubmissionName}}</td>
             <td>{{submission.School}}</td>
             <td>{{submission.Subject}}</td>
@@ -40,6 +40,7 @@
             <td>{{submission.Markbook}}</td>
             <td>{{submission.Mark}}</td>
             <td>{{submission.MarkedDate}}</td>
+            <td align="right"><a href="{% url 'update_submission' submission.id %}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

@@ -20,10 +20,11 @@
         </tr>
         {% for subject in lstSubjects.all %}
         <tr>
+            <td><a href="{% url 'show_subject' subject.id %}">{{subject.SubjectNbr}}</a></td>
             <td>{{subject.School}}</td>
-            <td>{{subject.SubjectNbr}}</td>
             <td>{{subject.SubjectName}}</td>
             <td>{{subject.Description}}</td>
+            <td align="right"><a href="{% url 'update_subject' subject.id %}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+<h1> Student Registration </h1>
+<h2> {{ student.LastName }} </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Student: {{student.StudentName}} {{ student.LastName }}</h5>
+        <p class="card-text">
+            <ul>
+                <li>Student Nbr: {{ student.StudentNbr }}</li>
+                <li>First Name: {{ student.FirstName }}</li>
+                <li>Last Name: {{ student.LastName }}</li>
+                <li>Year: {{ student.Year }}</li>
+                <li>Age: {{ student.Age }}</li>
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+    <a href="{% url 'clone_student' student.id %}" class="btn btn-secondary btn-sm">Clone Student</a>
+    <a href="{% url 'update_student' student.id %}" class="btn btn-secondary btn-sm">Update Student</a>
+    <a href="{% url 'delete_student' student.id %}" class="btn btn-outline-danger btn-sm">Delete Student</a>
+    </div>
+</div>
+
+
+{% endblock %}

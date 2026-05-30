@@ -18,11 +18,12 @@
         </tr>
         {% for teacher in lstTeachers.all %}
         <tr>
-            <td>{{teacher.TeacherNbr}}</td>
+            <td><a href="{% url 'show_teacher' teacher.id %}">{{teacher.TeacherNbr}}</a></td>
             <td>{{teacher.Title}}</td>
             <td>{{teacher.FirstName}}</td>
             <td>{{teacher.LastName}}</td>
             <td>{{teacher.Faculty}}</td>
+            <td align="right"><a href="{% url 'update_teacher' teacher.id %}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

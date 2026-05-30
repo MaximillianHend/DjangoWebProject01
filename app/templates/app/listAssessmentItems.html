@@ -20,15 +20,16 @@
                 <th>Weighting (%)</th>
                 <th>Description</th>
             </tr>
-            {% for assessment in lstAssessmentItems.all %}
+            {% for assessmentitem in lstAssessmentItems.all %}
             <tr>
-                <td>{{assessment.Course}}</td>
-                <td>{{assessment.Unit}}</td>
-                <td>{{assessment.AssessmentItemNbr}}</td>
-                <td>{{assessment.AssessmentItemName}}</td>
-                <td>{{assessment.AssessmentItemType}}</td>
-                <td>{{assessment.Weighting}}</td>
-                <td>{{assessment.Description}}</td>
+                <td><a href="{% url 'show_assessmentitem' assessmentitem.id %}">{{assessmentitem.AssessmentItemNbr}}</a></td>
+                <td>{{assessmentitem.Course}}</td>
+                <td>{{assessmentitem.Unit}}</td>
+                <td>{{assessmentitem.AssessmentItemName}}</td>
+                <td>{{assessmentitem.AssessmentItemType}}</td>
+                <td>{{assessmentitem.Weighting}}</td>
+                <td>{{assessmentitem.Description}}</td>
+                <td align="right"><a href="{% url 'update_assessmentitem' assessmentitem.id %}">Update</a></td>
             </tr>
             {% endfor %}
         </table>

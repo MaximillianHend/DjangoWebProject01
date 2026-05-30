@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% block content %}
+<h1>Update Markbook Record</h1>
+<br />
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br />
+    <input type="submit" value="Update" class="btn btn-secondary">
+
+</form>
+
+
+{% endblock %}

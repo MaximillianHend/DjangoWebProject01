@@ -12,6 +12,7 @@
     {% if lstEnrolments.all %}
     <table class="table table-bordered">
         <tr>
+            <th>Enrolment #</th>
             <th>School</th>
             <th>Student</th>
             <th>Enrolment Date</th>
@@ -23,6 +24,7 @@
         </tr>
         {% for enrolment in lstEnrolments.all %}
         <tr>
+            <td><a href="{% url 'show_enrolment' enrolment.id %}">{{enrolment.EnrolmentNbr}}</a></td>
             <td>{{enrolment.School}}</td>
             <td>{{enrolment.Student}}</td>
             <td>{{enrolment.EnrolmentDate}}</td>
@@ -31,6 +33,7 @@
             <td>{{enrolment.Unit}}</td>
             <td>{{enrolment.StartDate}}</td>
             <td>{{enrolment.EndDate}}</td>
+            <td align="right"><a href="{% url 'update_enrolment' enrolment.id %}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

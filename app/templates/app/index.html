@@ -1,6 +1,7 @@
 {% extends "app/base.html" %}
 
 {% block content %}
+<h1>Course Outline Planner Overview</h1>
 <br />
 <body>
     <table class="table table-bordered">
@@ -28,31 +29,72 @@
             <td>{{ objMarkbooks.count }}</td>
             <td>{{ objSubmissions.count }}</td>
         </tr>
-
     </table>
 </body>
 <br />
-<br />
+<p><a href='create_markbooks'>Create Markbooks</a></p>
+
 <body>
-    <p>Schools  <a href='schoolinput'>Add   </a><a href='schoolread'>Read   </a><a href='schooledit'>Update   </a><a href='schooldelete'>Delete   </a></p>
-    <p>Teachers <a href='teacherinput'>Add   </a><a href='teacherread'>Read   </a><a href='teacheredit'>Update   </a><a href='teacherdelete'>Delete   </a></p>
-    <p>Students <a href='studentinput'>Add   </a><a href='studentread'>Read   </a><a href='studentedit'>Update   </a><a href='studentdelete'>Delete   </a></p>
-    <p>Subjects <a href='subjectinput'>Add   </a><a href='subjectread'>Read   </a><a href='subjectedit'>Update   </a><a href='subjectdelete'>Delete   </a></p>
-    <p>Courses <a href='courseinput'>Add   </a><a href='courseread'>Read   </a><a href='courseedit'>Update   </a><a href='coursedelete'>Delete   </a></p>
-    <p>Units <a href='unitinput'>Add   </a><a href='unitread'>Read   </a><a href='unitedit'>Update   </a><a href='unitdelete'>Delete   </a></p>
-    <p>Assessment Items<a href='assessmentiteminput'>Add   </a><a href='assessmentitemread'>Read   </a><a href='assessmentitemedit'>Update   </a><a href='assessmentitemdelete'>Delete   </a></p>
-    <p>Enrolments <a href='enrolmentinput'>Add   </a><a href='enrolmentread'>Read   </a><a href='enrolmentedit'>Update   </a><a href='enrolmentdelete'>Delete   </a></p>
-    <p>Markbooks<a href='markbookinput'>Add   </a><a href='markbookread'>Read   </a><a href='markbookedit'>Update   </a><a href='markbookdelete'>Delete   </a></p>
-    <p>Submissions <a href='submissioninput'>Add   </a><a href='submissionread'>Read   </a><a href='submissionedit'>Update   </a><a href='submissiondelete'>Delete   </a></p>
-    <p><a href="{% url 'rubric' %}">Rubric Genertor</a></p>
+    <table class="table table-bordered">
+        <tr>
+            <hd>Table</hd>
+            <hd></hd>
+            <hd></hd>
+        </tr>
+        <tr>
+            <td>Schools</td>
+            <td><a href='schoolinput'>Add</a></td>
+            <td><a href='schoollist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Teachers</td>
+            <td><a href='teacherinput'>Add</a></td>
+            <td><a href='teacherlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Students</td>
+            <td><a href='studentinput'>Add</a></td>
+            <td><a href='studentlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Subjects</td>
+            <td><a href='subjectinput'>Add</a></td>
+            <td><a href='subjectlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Courses</td>
+            <td><a href='courseinput'>Add</a></td>
+            <td><a href='courselist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Units</td>
+            <td><a href='unitinput'>Add</a></td>
+            <td><a href='unitlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Assessment Items</td>
+            <td><a href='assessmentiteminput'>Add</a></td>
+            <td><a href='assessmentitemlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Enrolments</td>
+            <td><a href='enrolmentinput'>Add</a></td>
+            <td><a href='enrolmentlist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Markbooks</td>
+            <td><a href='markbookinput'>Add</a></td>
+            <td><a href='markbooklist'>Show</a></td>
+        </tr>
+        <tr>
+            <td>Submissions</td>
+            <td><a href='submissioninput'>Add</a></td>
+            <td><a href='submissionlist'>Show</a></td>
+        </tr>
+    </table>
+
+        <p><a href="{% url 'rubric' %}">Rubric Genertor</a></p>
 </body>
-
-
-
-
-
-
-
 {% endblock %}
 
 

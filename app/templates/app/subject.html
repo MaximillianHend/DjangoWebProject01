@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Registration Form</title>
+    <title>Subject Creation Form</title>
 </head>
 <body>
-    <h2>Student Registration Form</h2>
-    <h3>Enter Student Details</h3>
+    <h2>Subject Creation Form</h2>
+    <h3>Enter Subject Details</h3>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -14,22 +14,22 @@
 </body>
 <br />
 <body>
-    {% if objStudents.all %}
-    <strong>Students:</strong>
+    {% if objSubjects.all %}
+    <strong>Subjects:</strong>
     <table>
         <tr>
-            <th>Student Name</th>
-            <th>Student Year</th>
+            <th>Subject Name</th>
+            <th>Subject Area</th>
         </tr>
-        {% for student in objStudents.all %}
+        {% for subject in objSubjects.all %}
         <tr>
-            <td>{{student.StudentName}}</td>
-            <td>{{student.Year}}</td>
+            <td>{{subject.SubjectName}}</td>
+            <td>{{subject.Area}}</td>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-    <p>No students found.</p>
+    <p>No Subjects found.</p>
     {% endif %}
 </body>
 <br />

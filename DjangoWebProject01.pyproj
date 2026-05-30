@@ -87,7 +87,34 @@
     <Content Include="app\templates\app\rubric_pdf.html" />
     <Content Include="app\templates\app\school-backup.html" />
     <Content Include="app\templates\app\school.html" />
+    <Content Include="app\templates\app\show_assessmentitem.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_course.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_enrolment.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_markbook.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="app\templates\app\show_school.html" />
+    <Content Include="app\templates\app\show_student.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_subject.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_submission.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_teacher.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\show_unit.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="app\templates\app\singleSchool.html" />
     <Content Include="app\templates\app\student.html" />
     <Content Include="app\templates\app\submission.html">
@@ -96,6 +123,9 @@
     <Content Include="app\templates\app\teacher.html" />
     <Content Include="app\static\app\images\Screenshot 2026-05-26 122300.png" />
     <Content Include="app\templates\app\unit.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="app\templates\app\update_markbook.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="app\templates\app\update_school.html">

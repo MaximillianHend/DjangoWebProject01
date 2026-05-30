@@ -22,13 +22,14 @@
             </tr>
             {% for student in lstStudents.all %}
             <tr>
-                <td>{{student.StudentNbr}}</td>
+                <td><a href="{% url 'show_student' student.id %}">{{ student.StudentNbr }}</a></td>
                 <td>{{student.Title}}</td>
                 <td>{{student.FirstName}}</td>
                 <td>{{student.LastName}}</td>
-                <td>{{student.Year}}</td>>
+                <td>{{student.Year}}</td>
                 <td>{{student.Age}}</td>
                 <td>{{student.Gender}}</td>
+                <td align="right"><a href="{% url 'update_student' student.id %}">Update</a></td>
             </tr>
             {% endfor %}
         </table>
@@ -39,5 +40,3 @@
     </form>
 </body>
 {% endblock %}
-
-

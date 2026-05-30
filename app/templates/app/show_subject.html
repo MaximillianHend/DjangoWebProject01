@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> Subject </h1>
+<h2> {{ subject.SubjectName }} </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Subject: {{subject.SubjectName}} </h5>
+        <p class="card-text">
+            <ul>
+                <li>Subject Nbr: {{ subject.SubjectNbr }}</li>
+                <li>Name: {{ subject.SubjectName }}</li>
+                <li>School: {{ subject.School }}</li>
+
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+    <a href="{% url 'clone_subject' subject.id %}" class="btn btn-secondary btn-sm">Clone Subject</a>
+    <a href="{% url 'update_subject' subject.id %}" class="btn btn-secondary btn-sm">Update Subject</a>
+    <a href="{% url 'delete_subject' subject.id %}" class="btn btn-outline-danger btn-sm">Delete Subject</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

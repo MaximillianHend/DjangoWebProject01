@@ -10,7 +10,6 @@
     {% if lstMarkbooks.all %}
     <table class="table table-bordered">
         <tr>
-            <th>School Name</th>
             <th>Markbook Nbr</th>
             <th>Markbook Name</th>
             <th>Teacher Name</th>
@@ -22,8 +21,7 @@
         </tr>
         {% for markbook in lstMarkbooks.all %}
         <tr>
-            <td>{{markbook.SchoolName}}</td>
-            <td>{{markbook.MarkbookNbr}}</td>
+            <td><a href="{% url 'show_markbook' markbook.id %}">{{markbook.MarkbookNbr}}</a></td>
             <td>{{markbook.MarkbookName}}</td>
             <td>{{markbook.TeacherName}}</td>
             <td>{{markbook.CourseName}}</td>
@@ -31,6 +29,7 @@
             <td>{{markbook.AssessmentItem}}</td>
             <td>{{markbook.Weighting}}</td>
             <td>{{markbook.DueDate}}</td>
+            <td align="right"><a href="{% url 'update_markbook' markbook.id %}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

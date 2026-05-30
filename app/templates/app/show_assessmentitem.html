@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> Assessment Item </h1>
+<h2> {{ assessmentitem.AssessmentItemName }} Individual Data Sheet Record Example </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Assessment Item: {{assessmentitem.AssessmentItemName}}</h5>
+        <p class="card-text">
+            <ul>
+                <li>Assessment Item #: {{ assessmentitem.AssessmentItemNbr }}</li>
+                <li>Name: {{ assessmentitem.AssessmentItemName }}</li>
+                <li>Unit: {{ assessmentitem.Unit }}</li>
+                <li>Weighting: {{ assessmentitem.Weighting }}</li>
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>>
+    <a href="{% url 'clone_assessmentitem' assessmentitem.id %}" class="btn btn-secondary btn-sm">Clone Assessment Item</a>
+    <a href="{% url 'update_assessmentitem' assessmentitem.id %}" class="btn btn-secondary btn-sm">Update Assessment Item</a>
+    <a href="{% url 'delete_assessmentitem' assessmentitem.id %}" class="btn btn-outline-danger btn-sm">Delete Assessment Item</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

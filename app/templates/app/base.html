@@ -1,15 +1,48 @@
-{% load static %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<br />
-<img src="{% static 'app/images/Screenshot 2026-05-26 122300.png' %}" alt="Logo" style="display:block;">
-<br />
 
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <header>Course Outline Manager</header>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <img src="{% static 'app/images/Screenshot 2026-05-26 122300.png' %}" alt="Logo" style="display:block;">
+    <a href="{% url 'return_home' %}" class="btn">Home</a>
+    <a href="{% url 'exit_app' %}" class="btn">Exit</a>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Outline Manager</title>
+    <h1>Course Outline Manager</h1>
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    {% block content %}
 
 
-{% endblock %}
+    {% endblock %}
 
-<br />
-As of {{ time }} {{ cal|safe }}
-Copyright &copy; {{ year }} {{ appName }}. All rights reserved.
+    <br />
+    As of {{ time }} {{ cal|safe }}
+    Copyright &copy; 2026 MJHend. All rights reserved.
 

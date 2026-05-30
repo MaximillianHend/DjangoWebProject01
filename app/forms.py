@@ -3,16 +3,11 @@ Definition of forms.
 """
 
 from django import forms
-from .models import teacher, Outcome, subject
-
-#dads code___________________________________________________________________________________>
-
+from .models import teacher, Outcome, subject, tblSchool, tblTeacher, tblStudent, tblSubject, tblCourse, tblUnit, tblAssessmentItem, tblEnrolment, tblMarkbook, tblSubmission
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
-from django.forms import widgets
-from django.forms import ModelForm  
-from .models import tblSchool, tblTeacher, tblStudent, tblSubject, tblCourse, tblUnit, tblAssessmentItem, tblEnrolment, tblMarkbook, tblSubmission
-#--------------------------------------------------------------------------------------------
+from django.forms import widgets, ModelForm
+
 
 
 
@@ -40,16 +35,13 @@ class RubricForm(forms.Form):
 
 
 #webpage forms -------------------------------------------------------------------------------------------------------------------
-
 class schoolForm(forms.ModelForm):
     class Meta:
         model = tblSchool
         fields = ('SchoolNbr','SchoolName','Address','Suburb','State','Postcode','Phone','Email','Website')
-
-        labels = {'SchoolNbr': "",'SchoolName': "",'Address': "",'Suburb': "",'State': "",'Postcode': "",'Phone': "",'Email': "",'Website': ""}
-
+        labels = {'SchoolNbr': "",'SchoolName': "",'Address': "",'Suburb': "",'State': "",'Postcode': "",'Phone': "",'Email': "",'Website': "",}
         widgets = {
-            'SchoolNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Number'}), 
+            'SchoolNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Number'}),
             'SchoolName': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Name'}),
             'Address': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Address'}),
             'Suburb': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Suburb'}),
@@ -60,21 +52,12 @@ class schoolForm(forms.ModelForm):
             'Website': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Website'}),
             }
         
-
         
 class teacherForm(forms.ModelForm):
     class Meta:
         model = tblTeacher
         fields = ['TeacherNbr','Title','FirstName','LastName','Faculty','Phone','Email']
-        labels = {
-            'TeacherNbr': "Tch Nbr",
-            'Title': "Title",
-            'FirstName': "FirstName",
-            'LastName': "LastName",
-            'Faculty': "Faculty",
-            'Phone': "Phone",
-            'Email': "Email",
-            }
+        labels = {'TeacherNbr': "Tch Nbr",'Title': "Title",'FirstName': "FirstName",'LastName': "LastName",'Faculty': "Faculty",'Phone': "Phone",'Email': "Email",}
         widgets = {
             'TeacherNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter School Number'}),
             'Title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -85,24 +68,11 @@ class teacherForm(forms.ModelForm):
             'Email': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class studentForm(forms.ModelForm):
     class Meta:
         model = tblStudent
         fields = ['StudentNbr','FirstName','LastName','Year','Age','Gender','Title','DateOfBirth','Phone','Email'] 
-        labels = {
-            'StudentNbr': "St Nbr",
-            'FirstName': "FirstName",
-            'LastName': "LastName",
-            'Year': "Year",
-            'Age': "Age",
-            'Gender':"",
-            'Title': "Title",
-            'DateOfBirth': "DOB",
-            'Phone': "Phone",
-            'Email': "Email",
-            }
+        labels = {'StudentNbr': "St Nbr",'FirstName': "FirstName",'LastName': "LastName",'Year': "Year",'Age': "Age",'Gender':"",'Title': "Title",'DateOfBirth': "DOB",'Phone': "Phone",'Email': "Email",}
         widgets = {
             'StudentNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Student Number'}),
             'FirstName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -116,18 +86,11 @@ class studentForm(forms.ModelForm):
             'Email': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class subjectForm(forms.ModelForm):
     class Meta:
         model = tblSubject
         fields = ['SubjectNbr','SubjectName','Area','Grade'] 
-        labels = {
-            'SubjectNbr': "Sub Nbr",
-            'SubjectName': "Subject Name",
-            'Area': "Area",
-            'Grade': "Grade",
-            }
+        labels = {'SubjectNbr': "Sub Nbr",'SubjectName': "Subject Name",'Area': "Area",'Grade': "Grade",}
         widgets = {
             'SubjectNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Subject Number'}),
             'SubjectName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -135,20 +98,11 @@ class subjectForm(forms.ModelForm):
             'Grade': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class courseForm(forms.ModelForm):
     class Meta:
         model = tblCourse
         fields = ['CourseNbr','CourseName','CourseDesc','Subject', 'School','Teacher']
-        labels = {
-            'CourseNbr': "Crs Nbr",
-            'CourseName': "Course Name",
-            'CourseDesc': "Course Description",
-            'Subject': "Subject",
-            'School': "School",
-            'Teacher': "Teacher",
-            }
+        labels = {'CourseNbr': "Crs Nbr",'CourseName': "Course Name",'CourseDesc': "Course Description",'Subject': "Subject",'School': "School",'Teacher': "Teacher",}
         widgets = {
             'CourseNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Course Number'}),
             'CourseName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -158,18 +112,11 @@ class courseForm(forms.ModelForm):
             'Teacher': forms.Select(attrs={'class': 'form-control'}),
             }
 
-
-
 class unitForm(forms.ModelForm):
     class Meta:
         model = tblUnit
         fields = ['UnitNbr','UnitName','Course','UnitDesc'] 
-        labels = {
-            'UnitNbr': "Unit Nbr",
-            'UnitName': "Unit Name",
-            'Course': "Course",
-            'UnitDesc': "Unit Description",
-            }
+        labels = {'UnitNbr': "Unit Nbr",'UnitName': "Unit Name",'Course': "Course",'UnitDesc': "Unit Description",}
         widgets = {
             'UnitNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Unit Number'}),
             'UnitName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -177,19 +124,11 @@ class unitForm(forms.ModelForm):
             'UnitDesc': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class assessmentitemForm(forms.ModelForm):
     class Meta:
         model = tblAssessmentItem
         fields = ['AssessmentItemNbr','AssessmentItemName','Course','Unit','Weighting'] 
-        labels = {
-            'AssessmentItemNbr': "AI Nbr",
-            'AssessmentItemName': "Assessment Item Name",
-            'Course': "Course",
-            'Unit': "Unit",
-            'Weighting': "Weighting (%)",
-            }
+        labels = {'AssessmentItemNbr': "AI Nbr",'AssessmentItemName': "Assessment Item Name",'Course': "Course",'Unit': "Unit",'Weighting': "Weighting (%)",}
         widgets = {
             'AssessmentItemNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Assessment Item Number'}),
             'AssessmentItemName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -198,24 +137,12 @@ class assessmentitemForm(forms.ModelForm):
             'Weighting': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class enrolmentForm(forms.ModelForm):
     class Meta:
         model = tblEnrolment
         fields = ['EnrolmentNbr','EnrolmentDate','EnrolmentName','School','Subject','Course','Unit','Student','StartDate','EndDate'] 
-        labels = {
-            'EnrolmentNbr': "Enrol Nbr",
-            'EnrolmentDate': "Enrolment Date",
-            'EnrolmentName': "Enrolment Name",
-            'School': "School",
-            'Subject': "Subject",
-            'Course': "Course",
-            'Unit': "Unit",
-            'Student': "Student",
-            'StartDate': "Start Date",
-            'EndDate': "End Date",
-            }
+        labels = {'EnrolmentNbr': "Enrol Nbr",'EnrolmentDate': "Enrolment Date",'EnrolmentName': "Enrolment Name",'School': "School",'Subject': "Subject",'Course': "Course",
+                  'Unit': "Unit",'Student': "Student",'StartDate': "Start Date",'EndDate': "End Date",}
         widgets = {
             'EnrolmentNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Enrolment Number'}),
             'EnrolmentDate': forms.TextInput(attrs={'class': 'form-control'}),
@@ -229,23 +156,12 @@ class enrolmentForm(forms.ModelForm):
             'EndDate': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-
-
 class markbookForm(forms.ModelForm):
     class Meta:
         model = tblMarkbook
         fields = ['MarkbookNbr','MarkbookName','Teacher','Course','Unit','AssessmentItem','MarkValue','MarkDate', 'VET']
-        labels = {
-            'MarkbookNbr': "Markbook Number   ",
-            'MarkbookName': "Markbook Name       ",
-            'Teacher': "Teacher Name       ",
-            'Course': "Course        ",
-            'Unit': "Unit          ",
-            'AssessmentItem': "Assessment Item     ",
-            'MarkValue': "Mark Value/Weighting (%)",
-            'MarkDate': "Due Date         ",
-            'VET': "VET",
-            }
+        labels = {'MarkbookNbr': "Markbook Number   ",'MarkbookName': "Markbook Name       ",'Teacher': "Teacher Name       ",'Course': "Course        ",'Unit': "Unit          ",
+                  'AssessmentItem': "Assessment Item     ",'MarkValue': "Mark Value/Weighting (%)",'MarkDate': "Due Date         ",'VET': "VET",}
         widgets = {
             'MarkbookNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Markbook Number'}),
             'MarkbookName': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Markbook Name'}),
@@ -258,23 +174,12 @@ class markbookForm(forms.ModelForm):
             'VET': forms.CheckboxInput(attrs={'class': 'form-check-input','placeholder': 'Included in VET?'}),
             }
 
-
-
 class submissionForm(forms.ModelForm):
     class Meta:
         model = tblSubmission
         fields = ['SubmissionNbr','SubmissionName','Markbook','Course','Unit','AssessmentItem','Student','SubmissionMark','SubmissionDate']
-        labels = {
-            'SubmissionNbr': "Sub Nbr",
-            'SubmissionName': "Submission Name",
-            'Markbook': "Markbook",
-            'Course': "Course",
-            'Unit': "Unit",
-            'AssessmentItem': "Assessment Item",
-            'Student': "Student",
-            'SubmissionMark': "Submission Mark",
-            'SubmissionDate': "Submission Date",
-            }
+        labels = {'SubmissionNbr': "Sub Nbr",'SubmissionName': "Submission Name",'Markbook': "Markbook",'Course': "Course",'Unit': "Unit",'AssessmentItem': "Assessment Item",
+                  'Student': "Student",'SubmissionMark': "Submission Mark",'SubmissionDate': "Submission Date",}
         widgets = {
             'SubmissionNbr': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter Submission Number'}),
             'SubmissionName': forms.TextInput(attrs={'class': 'form-control'}),
@@ -286,6 +191,8 @@ class submissionForm(forms.ModelForm):
             'SubmissionMark': forms.TextInput(attrs={'class': 'form-control'}),
             'SubmissionDate': forms.TextInput(attrs={'class': 'form-control'}),
             }
+
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

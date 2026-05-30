@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<h1> Unit </h1>
+<h2> {{ unit.UnitName }} </h2>
+
+<div class="card">
+    <div class="card-header">
+
+
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Unit: {{unit.UnitName}}</h5>
+        <p class="card-text">
+            <ul>
+                <li>Unit Nbr: {{ unit.UnitNbr }}</li>
+                <li>Unit Name: {{ unit.UnitName }}</li>
+
+
+            </ul>
+
+        </p>
+    </div>
+    <div class="card-footer text-muted"
+    <a href="dummy" 1" class="btn btn-secondary btn-sm"></a>
+    <a href="{% url 'clone_unit' unit.id %}" class="btn btn-secondary btn-sm">Clone Unit</a>
+    <a href="{% url 'update_unit' unit.id %}" class="btn btn-secondary btn-sm">Update Unit</a>
+    <a href="{% url 'delete_unit' unit.id %}" class="btn btn-outline-danger btn-sm">Delete Unit</a>
+    </div>
+</div>
+
+
+
+{% endblock %}
