@@ -1,3 +1,6 @@
+#need to download and link weasyprint installstion in order to work
+#but it is blocked by the school so need to fix.
+
 from re import A
 import app.models
 from django.contrib import admin
